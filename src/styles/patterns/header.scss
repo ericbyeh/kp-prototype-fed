@@ -1,0 +1,209 @@
+//header and navigational tray pattern
+@import "~header-pattern/header";
+$padding-links___mobile:42px;
+
+.kp-header {
+  width: 100%;
+
+  @include media($device) {
+    background-color: #f7f7f7;
+    padding-top: 15px;
+  }
+
+  .peripheral-content {
+    display: block;
+
+    @include media($desktop) {
+      display: none;
+    }
+
+  }
+
+  .button {
+    margin-top: 20px;
+
+    @include media($tablet) {
+      padding: 13px 10px;
+    }
+
+    @include media($desktop) {
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .autocomplete-search.-global .autocomplete-search__submit {
+    width: 142px;
+  }
+}
+
+.kp-header__util-links-mobile {
+  text-align: center;
+  margin: 10px;
+
+  .region-body-picker .regionBodyPicker .navigational-select-dropdown {
+    margin: 10px auto;
+
+    @include media($device) {
+      margin-top: $padding-links___mobile;
+    }
+
+  }
+
+  .link-list__container {
+    margin-top: $padding-links___mobile;
+  }
+}
+
+.kp-header__util-links {
+  @include media($device) {
+    display: none;
+  }
+
+  a {
+    font-size: 13px;
+  }
+
+  .region-body-picker .regionBodyPicker .navigational-select-dropdown {
+    width: 100%;
+    font-family: $base-font-family;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 17px;
+    margin: 3px 0px 0px 3px;
+  }
+
+  .region-body-picker .regionBodyPicker .navigational-select-dropdown__list {
+    width: 100%;
+
+    @include media($desktop) {
+      min-width: 200px;
+    }
+  }
+
+  .region-body-picker {
+    display: inline-block;
+    border-right: 2px solid #e9ebee;
+    margin-right: 10px;
+    line-height: 50px;
+    padding-right: 10px;
+
+
+  }
+
+  .navigational-select-value a {
+    @include media($desktop) {
+      margin: 5px;
+      height: auto;
+      padding: 5px 15px;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .link-list__container {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-left: -4px;
+
+    &:not(:last-child) {
+      border-right: 2px solid #e9ebee;
+    }
+  }
+
+}
+
+.sub-menu {
+  @include media($device) {
+    margin: 0 20px;
+  }
+
+  .link-list-container {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    overflow: hidden;
+
+    @include media($desktop) {
+      border-left: 2px solid #e9ebee;
+    }
+  }
+
+  .link-list-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 0.8125rem;
+    line-height: 18px;
+    font-weight: normal;
+
+    @include media($desktop) {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      max-width: 100%;
+    }
+  }
+
+  .link-list {
+    @include media($desktop) {
+      display: flex;
+      -webkit-flex-flow: wrap column;
+      flex-flow: wrap column;
+      max-height: 150px;
+    }
+  }
+}
+
+.kp-global-menu__navigation-container {
+  @include media($desktop) {
+    @include columns(11);
+  }
+}
+
+.kp-header__signon-container {
+  @include columns(6);
+  padding-bottom: 38px;
+  justify-self: end;
+
+  @include media($device) {
+    display: none;
+  }
+}
+
+.kp-header__signon-button-mobile {
+  @include media($device) {
+    padding-bottom: 20px;
+    border-bottom: 3px solid #ccc;
+  }
+}
+
+.theme-nt-mobile-kp-blue .kp-global-menu .kp-header__util-links-mobile {
+  a {
+    @include media($device) {
+      margin: 15px 0;
+      color: $link-color;
+      font-family: $medium-font-family;
+      font-size: 15px;
+
+    }
+  }
+}
+.kp-header__util-links .region-body-picker {
+    display: inline-block;
+    border-right: 2px solid #e9ebee;
+    margin-right: 10px;
+    line-height: 50px;
+    padding-right: 10px;
+}
+.kp-header__util-links {
+    .navigational-picker {
+        width: 120px;
+    }
+}

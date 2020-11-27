@@ -1,0 +1,13 @@
+{
+  "rootDir": "..",
+  "verbose": true,
+  "coverageDirectory": "coverage/",
+  "notify": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "../src/**/*.js",
+    "!.*",
+    "!../src/**/__test__/*"
+  ],
+  "testMatch": ["<rootDir>/tests/addon-jest.test.js"]
+}

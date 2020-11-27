@@ -1,0 +1,38 @@
+{
+  "name": "kp-prototype-fed",
+  "version": "0.0.1",
+  "homepage": "http://cskpcloudxn1713.cloud.kp.org/kp-poc/sandbox",
+  "private": false,
+  "dependencies": {
+    "install": "^0.13.0",
+    "node-sass": "^4.12.0",
+    "notifications-pattern": "^1.0.25",
+    "npm": "^6.14.9",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.0.1",
+    "side-navigation-pattern": "^1.3.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {},
+  "proxy": "http://localhost:3001/"
+}

@@ -1,0 +1,401 @@
+$graphite-border:color('graphite-dark');
+
+@mixin fontStyles($i) {
+    @if $i==1 {
+      font-family: $light-font-family;
+      font-size: $xxl-font-size;
+      line-height: 72px;
+      letter-spacing: -1px;
+      font-weight: normal;
+  
+      @include media($mobile) {
+        body:not(.-locked) &:not(.-locked) {
+          font-size: $xl-font-size;
+          line-height: 40px;
+        }
+      }
+    }
+  
+    @if $i==2 {
+      font-size: $xl-font-size;
+      line-height: 48px;
+      font-weight: normal;
+  
+      @include media($mobile) {
+        body:not(.-locked) &:not(.-locked) {
+          font-size: $large-font-size;
+          line-height: 32px;
+        }
+      }
+    }
+  
+    @if $i==3 {
+      font-size: $large-font-size;
+      font-weight: normal;
+      line-height: 36px;
+  
+      @include media($mobile) {
+        body:not(.-locked) &:not(.-locked) {
+          font-size: $medium-font-size;
+          line-height: 24px;
+        }
+      }
+    }
+  
+    @if $i==4 {
+      font-size: $medium-font-size;
+      line-height: 28px;
+      font-weight: normal;
+    }
+  
+    @if $i==5 {
+      font-size: $small-font-size;
+      line-height: 24px;
+      font-weight: normal;
+    }
+  
+    @if $i==6 {
+      font-size: $base-font-size;
+      line-height: 24px;
+      font-weight: normal;
+    }
+  
+    @if $i==7 {
+      font-size: $base-mobile-font-size;
+      line-height: 20px;
+      font-weight: normal;
+  
+      @include media($mobile) {
+        font-size: $base-mobile-font-size;
+        line-height: 20px;
+      }
+    }
+  
+    @if $i==8 {
+      font-size: $tiny-font-size;
+      line-height: 16px;
+      font-weight: normal;
+  
+      &%-caps,
+      &%--caps {
+        // escapes double hyphen for IE and legacy mobile Safari suport
+        @include caps;
+      }
+    }
+  
+    @if $i==9 {
+      font-size: $extra-tiny-font-size;
+      line-height: 16px;
+      font-weight: normal;
+  
+      // single-dash is preferred, but will support double-dash for legacy implementations
+      &%-caps,
+      &%--caps {
+        // escapes double hyphen for IE and legacy mobile Safari suport
+        @include caps;
+      }
+    }
+  }
+  @mixin horizontal-list--styles {
+    padding-left: 0;
+    list-style: none;
+  
+    li {
+      display: inline-block;
+      padding-right: $small-spacing;
+    }
+  
+    &.-divided {
+      li {
+        padding-right: $small-spacing;
+        border-right: 1px solid color(graphite-dark);
+        margin-right: $small-spacing;
+      }
+  
+      li:last-child {
+        border-right: 0;
+        margin-right: 0;
+      }
+    }
+  }
+  
+  
+  @mixin content-toggle-variation-footer {
+    @include style-variation(1);
+    background: transparent;
+  
+    @include media($device) {
+      @include bordered('graphite-dark', 1px);
+    }
+  
+    .content {
+      @include columns(12);
+      position: relative;
+      padding: 0 0 20px 40px;
+  
+      @include media($desktop) {
+        padding-left: 0;
+        padding-bottom: 16px;
+      }
+    }
+  
+    .expandable-heading {
+      @include columns(12);
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+  
+      .expandable-heading-icon {
+        @include media($desktop) {
+          display: none;
+        }
+  
+        background-color: transparent;
+        margin-top: 0px;
+        left: 0;
+      }
+  
+      .expandable-heading-text {
+        font-weight: 700;
+        @include footer__title;
+  
+        @include media($desktop) {
+          margin-bottom: 20px;
+          line-height: 22px;
+        }
+  
+        @include media($device) {
+          padding: 30px 0 30px 40px;
+          line-height: 16px;
+        }
+  
+      }
+    }
+  
+  }
+  
+  
+  @mixin footer__title {
+    font-size: 16px;
+    margin-top: 0;
+    color: color(inky-blue);
+    padding: $medium-spacing 0px;
+  
+    @include media($desktop) {
+      border-top: none;
+      padding: 0;
+    }
+  }
+  
+  @mixin footer--styles($background-color) {
+    @include fill-parent();
+    background-color: color($background-color);
+    margin-top: 0px;
+  
+    @include media($desktop) {
+      padding: $xl-spacing 0 0;
+      padding-top: $large-spacing;
+      margin-top: 90px;
+    }
+  
+    a,
+    a:visited,
+    .content-toggle--initialized.-device-only a,
+    .content-toggle--initialized.-device-only a:visited {
+      color: color('contrast-blue');
+    }
+    .static-heading {
+      @include footer__title;
+  
+    }
+    .footer__content-toggle {
+      @include media($device) {
+        @include content-toggle;
+      }
+    }
+  
+    .footer__columns {
+      @include rows;
+  
+      @include media($desktop) {
+        margin: 0 0 40px;
+      }
+  
+      .footer__columns-3 {
+        @include columns(3);
+  
+        @include media($device) {
+          @include columns(12);
+        }
+      }
+    }
+  
+    .footer__copyright {
+      @include media($desktop) {
+        margin-top: 0;
+        margin-bottom: 20px;
+  
+        img {
+          max-width: 151px;
+          height: auto;
+        }
+      }
+  
+      @include media($desktop-small-up) {
+        margin: $small-spacing 0 0 0;
+        display: block !important;
+  
+        img {
+          max-width: 183px;
+        }
+      }
+    }
+    .footer__upper, .footer__lower,
+    .footer__a {
+      @include newGrid__container;
+  
+      @include media($desktop) {
+        margin-top: 0;
+        margin-bottom: $large-spacing;
+      }
+  
+    }
+    .footer__upper {
+      @include media($desktop) {
+        padding: 0 3px;
+      }
+  
+      .link-list {
+        @include media($desktop) {
+        padding-top: 20px;
+        }
+        ul{
+          padding-top:0;
+        }
+        li {
+          padding: $tiny-spacing 0;
+          @include media($desktop) {
+          padding: 5px 30px 15px 0;
+        }
+          &:last-child {
+            padding-bottom: 0;
+          }
+  
+          &:first-child {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  
+    .footer__lower {
+      padding-bottom:40px;
+      @include media($desktop) {
+        padding: 0 3px 40px;
+      }
+      .footer__social-header,
+      .footer__social-links,
+      .link-list,
+      .external-site-link-disclaimer,
+      .footer__copyright {
+        @include columns(12);
+      }
+  
+      p {
+        font-size: $tiny-font-size;
+        line-height: $small-spacing;
+        margin: 10px 0;
+  
+        @include media($desktop) {
+          margin: 10px 0;
+        }
+      }
+  
+      .link-list {
+        li {
+          padding: $tiny-spacing 0;
+          @include media($desktop) {
+          padding: 30px 0 20px 0;
+        }
+        }
+      }
+      .footer__social-follow-text {
+        font-size: $small-font-size;
+        color: color(inky-blue);
+  
+        @include media($desktop) {
+          display: none;
+          margin-bottom: $small-spacing;
+          margin-top: $medium-spacing;
+          padding-bottom: $small-spacing;
+  
+        }
+      }
+  
+      p {
+        @include fontStyles(8);
+        line-height: normal;
+        margin: 0;
+      }
+  
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+    .-device-only {
+      @include content-toggle-variation-footer;
+      grid-gap: 0;
+  
+    
+    }
+  
+    >.content.show:nth-last-child(-n+2) {
+      @include media($device) {
+        border-bottom: 1px solid $graphite-dark;
+        margin-bottom: 20px;
+      }
+    }
+  
+  
+  }
+  
+.footer--pebble {
+    @include footer--styles(pebble);
+    .content-toggle.-variation-1 .expandable-heading .expandable-heading-icon {
+      background-color: transparent;
+    }
+  }
+
+  
+
+  
+
+  //Footer Styles
+  .footer--pebble {
+    @include media($device) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0;
+    }
+    .footer__content-toggle .expandable-heading {
+      font-family: $base-font-family;
+      border-bottom: 1px solid $graphite-border;
+  }
+  }
+  .footer {
+    position: relative;
+    bottom: 0;
+    @include media($device) {
+      margin-top: 40px;
+    }
+     a {
+      font-size: 0.8125rem;
+    }
+    .social-share .social-share__listWrapper {
+      width: 100%;
+  }
+  }
