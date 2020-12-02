@@ -1,18 +1,87 @@
+//imports
+//child patterns
+@import '~autocomplete-search-pattern/autocomplete-search';
+@import '~breadcrumbs-pattern/breadcrumb';
+@import '~content-toggle-pattern/content-toggle';
+@import '~form-pattern/form';
+@import '~navigational-picker-pattern/navigational-picker';
+@import '~notifications-pattern/notifications';
+@import '~modal-pattern/modal';
+@import '~pagination-pattern/pagination';
+@import '~print-utility-pattern/print';
+@import '~promotional-component-pattern/promotional-component';
+@import '~sortable-table-pattern/sortable-table';
+@import '~tabs-pattern/tabs';
+@import '~side-navigation-pattern/side-navigation';
+
+//header, footer and parent pattern
+@import '~navigation-tray-pattern/navigation-tray';
+@import '~header-pattern/src/styles/header-index';
+
+
 //local structure footer & header
 @import "Footer";
 @import "header";
-
-
 //local files
 @import "socialshare";
 @import "contentToggle";
 @import "cta";
+@import "tabs";
 @import "filterMenu";
 @import "hero";
+@import "pagination";
 @import "promotionalComponent";
 @import "newsAnnoucements";
 @import "tables";
 @import "feactureContent";
+@import "socialshare";
+@import "imageDescription";
 @import "linkList";
 @import "sidenav";
 @import "videoPlay";
+
+//custom BCSSP Pattern styles
+.form-group {
+  @include form-group;
+}
+
+//Print Utiility Sass
+.print-utility {
+  @include print-component;
+
+  @include media($device) {
+    display: none;
+  }
+
+  .print-utility__link {
+    background: none;
+    min-width: auto;
+    border: none;
+    color: $link-color;
+    padding: 0;
+    height: auto;
+    margin: 14px 0;
+
+    @include media($tablet-up) {
+      float: right;
+      padding-right: 3em; 
+      margin:0;
+   
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $link-hover-color;
+    }
+  }
+
+  .print-utility__icon {
+    &:before {
+      @include icon-for("print");
+    }
+
+  }
+}
+
+

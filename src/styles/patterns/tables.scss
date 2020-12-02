@@ -1,0 +1,171 @@
+  //table styles
+  @mixin table--styles {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+
+
+    @include media($mobile) {
+      display: block;
+    }
+
+    caption {
+      margin-bottom: $small-spacing;
+    }
+
+    tr {
+      border-bottom: $border--thin;
+
+      &:last-child {
+        @include media($tablet-up) {
+          border-bottom: $border--thick;
+        }
+      }
+
+      @include media($mobile) {
+        display: block;
+        border-bottom: $border--thin;
+      }
+    }
+
+    thead {
+      border-bottom: $border--thick;
+
+      @include media($mobile) {
+        border-bottom: $border--thin;
+        display: block;
+      }
+    }
+
+    thead th,
+    th[scope~="row"] {
+      @include children--padding;
+      text-transform: uppercase;
+      color: $text-light;
+      font-size: $table-label-font-size;
+      padding: $table-padding--xl-large;
+      text-align: left;
+
+      &.number {
+        text-align: right;
+      }
+
+      @include media($device) {
+        word-wrap: break-word;
+      }
+
+      @include media($mobile) {
+        display: block;
+        position: absolute;
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        width: 1px;
+        background-color: black;
+
+        &.number {
+          text-align: left;
+        }
+      }
+    }
+
+    tbody {
+      @include media($mobile) {
+        display: block;
+      }
+
+      th,
+      td {
+        @include children--padding;
+        padding: $table-padding--xl-large;
+        vertical-align: top;
+        word-wrap: break-word;
+        font-weight: normal;
+        text-align: left;
+
+        &.number {
+          text-align: right;
+        }
+
+        @include media($mobile) {
+          display: block;
+          padding: $table-padding--small;
+
+          &:last-child {
+            padding-bottom: $small-spacing;
+          }
+
+          &.number {
+            text-align: left;
+          }
+        }
+
+        @include media($device) {
+          padding-bottom: $extra-tiny-spacing;
+
+          &:first-child {
+            padding-left: 0;
+          }
+
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+
+        span.table-head {
+          @include media($device) {
+            color: $text-light;
+            text-transform: uppercase;
+            font-size: $table-label-font-size;
+            width: 100%;
+            display: block;
+            padding-bottom: $tiny-spacing;
+          }
+        }
+      }
+
+      // legacy support
+      th[data-th]:before,
+      td[data-th]:before {
+        display: none;
+
+        @include media($mobile) {
+          content: attr(data-th) " ";
+          color: $text-light;
+          text-transform: uppercase;
+          font-size: $table-label-font-size;
+          width: 100%;
+          display: block;
+          padding-bottom: $tiny-spacing;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  @mixin children--padding {
+    &:first-child {
+      padding-left: $micro-spacing;
+    }
+
+    &:last-child {
+      padding-right: $micro-spacing;
+    }
+  }
+
+  .table--grey-border {
+    @include table--styles;
+  }
+
+  .mobile-only {
+    display: none;
+    @include media($mobile) {
+      display: block;
+    }
+  }

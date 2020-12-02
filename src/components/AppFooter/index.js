@@ -15,7 +15,7 @@ class AppFooter extends React.Component {
   render() {
     return (
 
-      <footer class="footer-kp" role="contentinfo">
+      <footer class="footer-bcssp" role="contentinfo">
       <div class="footer footer--pebble" data-analytics-location="footer">
       <div className="main-body__container">
 

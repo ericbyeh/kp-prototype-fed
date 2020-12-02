@@ -10,5 +10,5 @@ ReactDOM.render(
   <BrowserRouter>
   <App />
 </BrowserRouter>,
-  document.getElementById("kp_container")
+  document.getElementById("bcssp_container")
 );

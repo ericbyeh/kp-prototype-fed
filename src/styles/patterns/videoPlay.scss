@@ -1,0 +1,21 @@
+.video-thumbnail{
+    margin-top: 20px;
+    img {
+        width: 100%;
+    }
+}
+.video-thumbnail__description {
+    h4, h3{
+        margin-top: 10px;
+    }
+}
+
+.video-player{
+    margin-bottom: 20px;
+    @include media($tablet-up) {
+        margin-bottom: 40px;
+    }
+    img {
+        width: 100%;
+    }
+}

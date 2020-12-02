@@ -1,0 +1,131 @@
+
+//Pagination
+.kpPagination {
+    margin-top: 20px;
+    @include media($mobile){
+      padding-bottom: 40px;
+    }
+   .kpPagination__item.-page.-active{
+      background-color: white;
+  }
+    .-disabled {
+      pointer-events: none;
+    }
+    .kpPagination__item:nth-last-child(2) {
+      margin-right: 10px;
+    }
+  }
+  .kpPagination__nav{
+    padding:0 20px;
+  }
+  .kpPagination__count{
+    @include media($mobile){
+      padding-left: 20px;
+    }
+  }
+  .kpPagination__list-numbers{
+      display: inline-block;
+    @include media($mobile){
+      display: none;
+    }
+  }
+  .kpPagination__item {
+    .kpPagination__link{ 
+  display: inline-block;
+  line-height: 30px;
+  width: 35px;
+  height: 30px;
+  color: #006BA6;
+  text-decoration: none;
+  background-color: transparent;
+  //border:.25px solid  #006BA6;
+  } 
+  }
+  .kpPagination .kpPagination__list{
+    @include media($mobile){
+      display: block;
+    }
+  }
+  @mixin pagination__item--styles{
+    text-align: center;
+    display: inline-block;
+    background-color: color(graphite);
+    margin: 0 $extra-tiny-spacing 0 0;
+    vertical-align: middle;
+    @include media($mobile){
+      display: inline;
+      margin:auto;
+      position: relative;
+    }
+  }
+  .kpPagination .kpPagination__item.-prev, .kpPagination .kpPagination__item.-next{
+    @include media($mobile){
+    width:30px;
+    }
+    
+  }
+  .kpPagination .kpPagination__item.-next{
+    @include media($mobile){
+      margin-left:20%;
+    }
+  }
+  .kpPagination .kpPagination__item.-prev{
+    @include media($mobile){
+      margin: 15px 38px 0 0;
+      float: left;
+    }
+  }
+  .kpPagination .kpPagination__item.-page {
+    @include pagination__item--styles;
+    }
+    .kpPagination__item-dropdown {
+      @include media($tablet-up){
+      display:none;
+      }
+      @include pagination__item--styles;
+      background-color: transparent;
+      font-size: 15px;
+      .kpPagination__select {
+        margin: 0 auto;
+        font-family: $light-font-family;
+        padding-top: 6px;
+        padding-right: 5px + $base-mobile-font-size; // added space for icon-chevron-down + clearance to the left of the icon-chevron-down
+        padding-bottom: 6px;
+        padding-left: 10px;
+        width: auto;
+        border: 1px solid color("graphite-dark"); // border need to be on select itself to support native browser focus outline
+        border-radius: 0;
+        font-size: 16px;
+        line-height: 16px; // for total height = 50px
+        background-color: #fff;
+        cursor: pointer;
+        -webkit-appearance: none; // remove browser default select arrow
+        -moz-appearance: none; // remove browser default select arrow
+        @include media($mobile) {
+          padding-top: 4px;
+          padding-bottom: 3px;
+        }
+        &:focus {
+          border-color: color("interactive-blue");
+        }
+      }
+      .kpPagination__selectIcon[aria-hidden="true"] {
+        position: relative;
+        right: 17px;
+        margin: 0 auto;
+        top: 0;
+        pointer-events: none;
+        &:before {
+          position: unset;
+          top: 1px; // 1px of border
+          right: 40px;
+          color: color("kp-blue");
+          pointer-events: none;
+        }
+      }
+    }
+    .kpPagination__totalPages {
+      font-family: $light-font-family;
+      display: inline-block;
+  }
+   

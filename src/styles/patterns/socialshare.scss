@@ -1,0 +1,200 @@
+@mixin social-share {
+  margin: 40px 0;
+
+  .social-share__header {
+    margin-bottom: 30px;
+    padding-left: 5px;
+    @include fontStyles(4);
+
+    @include media($mobile) {
+      @include fontStyles(5);
+    }
+  }
+
+  .social-share__listWrapper {
+    display: inline-block;
+
+    @include media($mobile) {
+      width: 13rem;
+    }
+
+  }
+
+  .social-share__list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+
+  }
+
+  .social-share__item {
+    display: inline-block;
+    margin-right: 20px;
+
+    @include media($mobile) {
+      margin-bottom: 20px
+    }
+  }
+
+  .social-share__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include size(44px);
+
+    .icon-facebook {
+      &:before {
+        position: relative;
+        left: 8px;
+      }
+    }
+
+    i {
+      @include size(32px);
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+}
+
+@mixin footer__social-icon-list ($icon-color, $icon-size) {
+  @include horizontal-list;
+  display: inline-block;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  ul {
+    padding-inline-start: 0px;
+  }
+
+  @include media($device) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  li {
+    padding: 0 $small-spacing 0 0;
+    margin: 0;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    @include media($desktop-small-up) {
+      padding: 0 $small-spacing 0 0;
+    }
+  }
+
+  [class^="icon-"],
+  [class*=" icon-"],
+  [class^="footer__icon-"],
+  [class*="footer__icon-"] {
+    display: block;
+    @extend %rounded-icon--small;
+    @extend %centered-icon;
+    @include size ($icon-size);
+    background-color: color('kp-blue');
+    color: #fff;
+    line-height: 38px;
+    font-size: 20px;
+
+
+    &:before {
+      display: inline-block;
+      align-items: center;
+      padding: 2px;
+      height: 54px;
+    }
+
+    span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+    }
+  }
+
+  .social-share__link {
+    .icon-twitter {
+      font-size: 20px;
+      &:before {
+        bottom: 0px;
+        position: relative;
+      }
+    }
+
+    .icon-instagram  {
+      font-size: 24px;
+      line-height: 36px;
+      &:before{
+        height:52px;
+        bottom: 4px;
+      }
+    }
+
+    .icon-facebook {
+      font-size: 20px;
+      line-height: 38px;
+      &:before {
+        width: 13px;
+        bottom: 1px;
+        left: 0px;
+        position: relative;
+      }
+    }
+
+    .icon-zlinkedin {
+      font-size: 19px;
+      line-height: 40px;
+      &:before {
+        width: 19px;
+        height: 54px;
+        bottom: 2px;
+        right: 1px;
+        position: relative;
+      }
+    }
+    .icon-youtube  {
+      font-size: 24px;
+      line-height: 36px;
+      &:before{
+        height:51px;
+      }
+    }
+    .icon-pinterest  {
+      font-size: 22px;
+      line-height: 36px;
+      &:before{
+        height:52px;
+      }
+    }
+  }
+
+}
+
+
+.social-share {
+  @include social-share;
+}
+
+.footer {
+  .social-share {
+    @include footer__social-icon-list (interactive-blue, 40px);
+    width: 100%;
+
+    .social-share__listWrapper .social-share__list .social-share__item .social-share__link i {
+      @include size(38px);
+      line-height: 40px; 
+    }
+  }
+  .social-share__listWrapper {
+    display: inline-block;
+
+    @include media($mobile) {
+      width: 100%;
+    }
+
+  }
+}

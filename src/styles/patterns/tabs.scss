@@ -1,0 +1,20 @@
+.tabs{
+    padding-top:30px;
+    p {
+        margin-bottom: 40px;
+        @include media($desktop){
+            margin-bottom: 20px;
+        }
+    }
+    h2 {
+        margin-bottom: 20px;
+        @include media($desktop){
+            margin-bottom: 40px;
+
+        }
+    }
+}
+
+.tabs__nav{
+    padding-bottom: 10px;
+}

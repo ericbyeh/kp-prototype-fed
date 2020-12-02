@@ -1,19 +1,19 @@
 {
   "name": "kp-prototype-fed",
   "version": "0.0.1",
-  "homepage": "http://cskpcloudxn1713.cloud.kp.org/kp-poc/sandbox",
+  "homepage": "http://cskpcloudxn1713.cloud.kp.org/bcssp-poc/sandbox",
   "private": false,
   "dependencies": {
     "install": "^0.13.0",
     "node-sass": "^4.12.0",
-    "notifications-pattern": "^1.0.25",
-    "npm": "^6.14.9",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "notifications-pattern": "^1.0.14",
+    "npm": "^6.14.5",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
-    "side-navigation-pattern": "^1.3.7"
+    "side-navigation-pattern": "^1.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,6 +33,21 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "autocomplete-search-pattern": "^1.0.29",
+    "breadcrumbs-pattern": "^1.0.24",
+    "form-pattern": "^3.0.50",
+    "header-pattern": "^2.0.2",
+    "kp-footer-pattern": "^1.0.0",
+    "modal-pattern": "^2.0.4",
+    "navigation-tray-pattern": "^1.3.0",
+    "navigational-picker-pattern": "^1.0.38",
+    "pagination-pattern": "^2.0.0",
+    "print-utility-pattern": "^1.0.14",
+    "promotional-component-pattern": "^1.0.14",
+    "social-share-pattern": "^1.0.4",
+    "styleguide": "~5.10.0",
+    "tabs-pattern": "^1.3.39"
+  },
   "proxy": "http://localhost:3001/"
 }

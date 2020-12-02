@@ -1,0 +1,28 @@
+//pattern
+
+.content-toggle .expandable-heading {
+    font-family: $medium-font-family;
+
+  }
+
+  .content-toggle.-variation-1 .expandable-heading .expandable-heading-icon {
+    width: 26px;
+    height: 26px;
+    left: 0px;
+    background-color:color('pebble');
+}
+.content-toggle .expandable-heading .expandable-heading-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+
+.content-toggle .expandable-heading .content {
+  color:$text-dark;
+}
+
+.content-toggle.-variation-1 .content{
+  color:$text-dark;
+
+}

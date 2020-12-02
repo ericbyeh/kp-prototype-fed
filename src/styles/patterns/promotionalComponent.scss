@@ -1,0 +1,12 @@
+
+//Promotional Component
+.promotional-component__title {
+    font-family: $medium-font-family;
+    @include styling(5);
+  }
+  
+  .promotional-component {
+    @include media($tablet-up) {
+      margin-top:13px;
+    }
+  }

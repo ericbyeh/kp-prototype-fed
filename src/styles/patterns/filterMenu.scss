@@ -1,0 +1,170 @@
+
+//For filter POC to show alternatig title
+//mixin
+@mixin filter-menu--styles {
+    .filter-menu__group {
+      background: color('pebble');
+      padding-right: 16px;
+      padding-left: 16px;
+      margin-bottom: 40px;
+  
+      @include media($desktop) {
+        padding: 20px 0px 0px;
+        margin: 20px auto 28px;
+      }
+    }
+  }
+  
+  @mixin filter-menu__article-title--styles {
+    @include styling(4);
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .filter-menu__articles-heading-group {
+    margin-bottom: 30px;
+    margin-top: 42px;
+  
+    p {
+      margin: 0;
+    }
+  }
+  
+  .filter-menu__dropdown {
+    @include select-one;
+  
+    select {
+      max-width: 100%;
+    }
+  }
+  
+  .filter-menu__button {
+    @include button;
+    margin: 20px auto;
+    width: 100%;
+  
+    @include media($desktop) {
+      max-width: 25%;
+      width: 100%;
+    }
+    @include media($tablet) {
+      max-width: 45%;
+      width: 100%;
+    }
+  }
+  
+  .filter-menu__group-input--inline {
+    @include form-group;
+    max-width: inherit;
+  
+    @include media($desktop) {
+      display: inline-block;
+      margin-right: 15px;
+      width: 100%;
+      max-width: 23%;
+    }
+  
+    @include media($tablet) {
+      max-width: 45%;
+      width: 100%;
+      display: inline-block;
+      margin: 15px 15px 15px 0;
+    }
+  
+    label {
+      margin-bottom: 5px;
+  
+      @include media($desktop) {
+        margin-bottom: 10px;
+      }
+  
+      @include media($mobile) {
+        padding-top: 20px;
+      }
+    }
+  }
+  
+  
+  
+  //classes
+  .filter-menu {
+    @include filter-menu--styles;
+  }
+  
+  .filter-menu__group-inner {
+    @include newGrid__container;
+  }
+  .filter-menu__group-inner--large-padding {
+    @extend .columns-11--center;
+    padding-bottom:20px;
+    //@include columns (8);
+    .filter-menu__group-input--inline {
+  
+    @include media($desktop) {
+      display: inline-block;
+      margin-right: 15px;
+      width: 100%;
+      max-width: 30%;
+    }
+  
+    @include media($tablet) {
+      max-width: 45%;
+      width: 100%;
+      display: inline-block;
+      margin: 15px 15px 15px 0;
+    }
+    }
+  
+  }
+  .filter-menu__articles-heading--large {
+    @include styling(2);
+    font-family: $light-font-family;
+  
+    @include media($desktop) {
+      margin-bottom: 14px;
+    }
+  
+  }
+  
+  .filter-menu__row {
+    @include rows;
+  }
+  
+  .filter-menu__articles,
+  .filter-menu__notification {
+    @extend .columns-11--center;
+  }
+  
+  .filter-menu__articles-heading--medium {
+    @include styling(3);
+    font-family: $light-font-family;
+    margin: 30px 0 10px;
+  }
+  
+  .filter-menu__articles-sub-heading {
+    @include styling(6);
+  }
+  
+  .filter-menu__articles-title {
+    @include filter-menu__article-title--styles;
+  }
+  
+  .filter-menu__articles-link {
+    width: 100%;
+    display: block
+  }
+  
+  .filter-menu__articles-title--inline {
+    @include filter-menu__article-title--styles;
+    display: inline-block;
+  }
+  
+  .filter-menu__articles-list-item {
+    padding-bottom: 28px;
+  }
+  
+  .filter-menu__articles-date {
+    @include styling(6);
+    color: color('dolphin');
+  
+  }

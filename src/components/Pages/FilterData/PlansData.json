@@ -1,0 +1,100 @@
+{
+   "listItems": [
+      {
+      "id":1,
+      "filterOne": "California",
+      "filterTwo":"2020", 
+      "filterTwoDescription":"In market on October 15, 2019, for January 1, 2020, effectives",  
+      "filterThree":"Platinum 70 HMO",
+      "articleTitles":[ "Platinum 70 HMO form ", "Platinum 70 HMO form ", "Platinum 70 HMO form" ],
+      "pdfDates":[ "  ", " ", " "],
+      "description":" ",
+      "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+      "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+   },
+      {
+      "id":3,
+      "filterOne": "Georgia",
+      "filterTwo":"2019",
+      "filterTwoDescription":"Help avoid processing delays — make sure you submit fully completed, current versions of the forms below.",      
+      "filterThree":"Platinum 70 HMO",
+      "articleTitles":[ "Platinum 70 HMO form ", "Platinum 70 HMO form ", "Platinum 70 HMO form" ],
+      "pdfDates":[ " ", "  ", " "],
+      "description":" ",
+      "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+      "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+   },
+   {
+      "id":4,
+      "filterOne": "Georgia",
+      "filterTwo":"2019",
+      "filterTwoDescription":"Help avoid processing delays — make sure you submit fully completed, current versions of the forms below.",      
+      "filterThree":"Plan - B",
+      "articleTitles":[ "Plan - B", "Plan - A", "Plan - A" ],
+      "pdfDates":[ " ", "  ", " "],
+      "description":" ",
+      "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+      "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+   },
+      {
+         "id":5,
+         "filterOne": "Hawaii",
+         "filterTwo":"2019", 
+         "filterTwoDescription":"In market on October 15, 2019, for January 1, 2020, effectives",  
+         "filterThree":"Plan - B",
+         "articleTitles":[ "Plan - B", "Plan - A", "Plan - A" ],
+         "pdfDates":[ "  ", " ", " "],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+      },
+      {
+         "id":2,
+         "filterOne": "Colorado",
+         "filterTwo":"2020", 
+         "filterTwoDescription":"In market on October 15, 2019, for January 1, 2020, effectives",  
+         "filterThree":"Plan - A", 
+         "articleTitles":["Plan - A form", "Plan - A form", "Plan - A form"],
+         "pdfDates":[ "  ", "  ", "  "],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+         },
+      {
+         "id":6,
+         "filterOne": "California",
+         "filterTwo":"2018", 
+         "filterTwoDescription":"For your convenience, you can download the forms below. If you need additional forms, please contact your account representative at 800-731-4661 (toll free).",      
+         "filterThree":"Platinum 70 HMO",
+         "articleTitles":[ "Platinum 70 HMO form ", "Platinum 70 HMO form ", "Platinum 70 HMO form" ],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+      },
+      {
+         "id":7,
+         "filterOne": "West Coast",
+         "filterTwo":"2018",
+         "filterTwoDescription":"For your convenience, you can download the forms below. If you need additional forms, please contact your account representative at 800-731-4661 (toll free).",      
+         "filterThree":"Plan - A", 
+         "articleTitles":["Plan - A form", "Plan - A form", "Plan - A form"],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+         },
+         {
+            "id":4,
+            "filterOne": "East Coast",
+            "filterTwo":"2019", 
+            "filterTwoDescription":"Help avoid processing delays — make sure you submit fully completed, current versions of the forms below.",    
+            "filterThree":"Change or Other", 
+            "articleTitles":[ "Plan - B", "Platinum 70 HMO form ", "Platinum 70 HMO form" ],
+            "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+            "description":" ",
+            "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+            "linkTitle":"Plan rates | Plan highlights | Plan comparison | Exchange partners"
+         }
+    ]
+}

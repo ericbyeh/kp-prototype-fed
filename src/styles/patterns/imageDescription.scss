@@ -1,0 +1,48 @@
+/* image-description styles */
+.image-description {
+  @include rows;
+
+  @include media($tablet) {
+    margin-top: 20px;
+  }
+
+  .image-description__column {
+    @include columns(4);
+
+    h4 {
+      @include media($tablet) {
+        margin-top: 0px;
+      }
+
+      @include media($desktop) {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+
+.image-description__image {
+  max-height: 220px;
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+  bottom: 0;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+
+  .image-description__content>p {
+    font-size: 1rem;
+    padding: 1rem .75rem;
+    color: #666666;
+  }
+
+  .image-description__content>a {
+    padding: .5rem 1rem;
+    margin: .5rem;
+  }
+
+}

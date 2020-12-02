@@ -1,0 +1,113 @@
+{
+   "listItems": [
+      {
+      "id":1,
+      "filterOne": "California",
+      "filterTwo":"Individual and family", 
+      "filterTwoDescription":"In market on October 15, 2019, for January 1, 2020, effectives",  
+      "filterThree":"Enrollment and change",
+      "articleTitles":[ "Enrollment and change form ", "Enrollment and change form ", "Enrollment and change form" ],
+      "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+      "description":" ",
+      "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+      "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+      },
+      {
+      "id":3,
+      "filterOne": "Georgia",
+      "filterTwo":"Small business",
+      "filterTwoDescription":"Help avoid processing delays — make sure you submit fully completed, current versions of the forms below.",      
+      "filterThree":"Enrollment and change",
+      "articleTitles":[ "Enrollment and change form ", "Enrollment and change form ", "Enrollment and change form" ],
+      "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+      "description":" ",
+      "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+      "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+      },
+
+      {
+         "id":5,
+         "filterOne": "Hawaii",
+         "filterTwo":"Small business forms", 
+         "filterTwoDescription":"In market on October 15, 2019, for January 1, 2020, effectives",  
+         "filterThree":"Other forms and support",
+         "articleTitles":[ "Enrollment and change form ", "Enrollment and change form ", "Enrollment and change form" ],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+      },
+      {
+         "id":2,
+         "filterOne": "Colorado",
+         "filterTwo":"Individual and family", 
+         "filterTwoDescription":"In market on October 15, 2019, for January 1, 2020, effectives",  
+         "filterThree":"Support", 
+         "articleTitles":["Support form", "Support form", "Support form"],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+         },
+      {
+         "id":6,
+         "filterOne": "California",
+         "filterTwo":"Large businesss", 
+         "filterTwoDescription":"For your convenience, you can download the forms below. If you need additional forms, please contact your account representative at 800-731-4661 (toll free).",      
+         "filterThree":"Enrollment and change",
+         "articleTitles":[ "Enrollment and change form ", "Enrollment and change form ", "Enrollment and change form" ],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+      },
+      {
+         "id":7,
+         "filterOne": "West Coast",
+         "filterTwo":"Large businesss",
+         "filterTwoDescription":"For your convenience, you can download the forms below. If you need additional forms, please contact your account representative at 800-731-4661 (toll free).",      
+         "filterThree":"Support", 
+         "articleTitles":["Support form", "Support form", "Support form"],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+         },
+         {
+            "id":4,
+            "filterOne": "East Coast",
+            "filterTwo":"Small business", 
+            "filterTwoDescription":"Help avoid processing delays — make sure you submit fully completed, current versions of the forms below.",    
+            "filterThree":"Change or Other", 
+            "articleTitles":[ "Enrollment and change form ", "Enrollment and change form ", "Enrollment and change form" ],
+            "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", "Updated (9/27/19)"],
+            "description":" ",
+            "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+            "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+            },
+         {
+         "id":8,
+         "filterOne": "California",
+         "filterTwo":"Broker only", 
+         "filterTwoDescription":" ",      
+         "filterThree":"Broker only",
+         "articleTitles":[ "Broker only", "Document Topic", "Broker Enrollment" ],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", " "],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+         },
+         {
+         "id":9,
+         "filterOne": "California",
+         "filterTwo":"Employer only", 
+         "filterTwoDescription":" ",      
+         "filterThree":"Employer only",
+         "articleTitles":[ "Employer only", "Employer only", "Employer only" ],
+         "pdfDates":[ "Updated (3/31/19) ", "Updated (6/30/19)", " "],
+         "description":" ",
+         "link":"/static/bcssp/pdfs/shared/nw/2019/KP_NW_SBG_WA_Product_Portfolio_2019.pdf",
+         "linkTitle":"English (PDF) | Español (PDF) | 格式 (PDF)"
+         }
+    ]
+}

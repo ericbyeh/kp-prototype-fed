@@ -1,0 +1,117 @@
+%list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// for the icon list
+@mixin link-icon {
+  font-size: px-to-rem(50px);
+  line-height: px-to-rem(50px);
+
+  @include media($tablet-max) {
+    font-size: px-to-rem(60px);
+    line-height: px-to-rem(60px);
+  }
+}
+
+@mixin link-list-title-dt {
+  margin: 0;
+  padding-bottom: $small-spacing;
+}
+
+@mixin link-list-title {
+  margin: 0;
+  padding-bottom: $small-spacing;
+}
+
+.link-list-title {
+  &--small {
+    @include link-list-title;
+    @include fontStyles(4);
+    color: color(dolphin);
+  }
+
+  &--large {
+    @include link-list-title;
+    @include fontStyles(3);
+    color: color(inky-blue);
+
+    @include media($mobile) {
+      @include fontStyles(2);
+    }
+  }
+}
+
+// .link-list-container wraps the entire list
+@mixin link-list {
+  @extend %list-unstyled;
+  margin-top: 0;
+  padding-top: 0;
+
+  & li {
+    padding-bottom: $extra-tiny-spacing;
+    @include fontStyles(6);
+  }
+}
+
+// .link-list-container wraps the entire list
+.link-list {
+  @extend %list-unstyled;
+  margin-top: 0;
+  padding-top: 0;
+
+  li {
+    padding-bottom: $extra-tiny-spacing;
+    @include fontStyles(6);
+  }
+}
+.horizontal-list{
+      //link list horizontal variation
+      .link-list {
+         margin-bottom:$small-spacing;
+         padding-left: 0;
+         list-style: none;
+   
+         @include media($desktop) {
+           margin: 0;
+           @include horizontal-list--styles;
+         }
+   
+         @include media($mobile) {
+           padding-top: 0;
+         }
+   
+         li {
+           display: block;
+           color: #0d1c3d;
+           //margin: $tiny-spacing 0;
+   
+           @include media($desktop) {
+             line-height: 17px;
+             display: inline-block;
+             margin: 0 $tiny-spacing $tiny-spacing 0;
+   
+             &:last-child {
+               border-right: 0px !important;
+             }
+             &:after {
+               content: '';
+               width: 1px;
+               display: inline-block;
+               height: 15px;
+               border: 0.5px solid #D3D6DC;
+               margin-top: 11px;
+               margin-left: 13px;
+             }
+           }
+   
+           @include media($desktop-small-up) {
+             margin: 0 $tiny-spacing $tiny-spacing 0;
+           }
+   
+           @include media($device) {
+             border-right: none;
+           }
+         }
+       }
+  }
