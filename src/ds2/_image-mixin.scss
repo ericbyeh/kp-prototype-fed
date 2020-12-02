@@ -1,0 +1,53 @@
+
+
+@mixin image {
+  img {
+    width: 100%;
+  }
+}
+
+@mixin yml-image-ratio($property) {
+    #{$property}: $yml-full-width-image-height-mobile;
+    @include media($tablet) { #{$property}: $yml-full-width-image-height-tablet; }
+    @include media($desktop) { #{$property}: $yml-full-width-image-height-desktop; }
+}
+
+// DS2 IMAGE LOADING STYLES
+// for the image loading background color and fade-in
+// js does the check for loading and sets '.image-loaded'
+// This is intended to be used where the '.image' class
+// is used and has a child <img>
+// the image fades in at the same speed the background
+// color fades out
+
+@mixin yml-image-loading {
+
+  --fade-speed: .2s;
+
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: color('blue-xlight');
+  }
+
+  &.image-loaded {
+    transform: background-color var(--fade-speed) ease-out;
+
+    &:after {
+      display: none;
+    }
+
+    img {
+      opacity: 1;
+    }
+  }
+
+  img {
+    transition: opacity var(--fade-speed) ease-out;
+    opacity: 0.1;
+  }
+}

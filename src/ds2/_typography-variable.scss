@@ -1,0 +1,77 @@
+
+// _typography.scss
+
+$locked: false;
+
+$weight-array: (light: "Gotham 3r", book: "Gotham 4r", medium: "Gotham 5r", bold: "Gotham 5r");
+$color-array: (black: #000, white: #fff);
+
+
+// DS2 - New
+$typography__size--style-1: 48px;
+$typography__line--style-1: 54px;
+$typography__spacing--style-1: -0.02em;
+$typography__size--style-2: 32px;
+$typography__line--style-2: 40px;
+$typography__spacing--style-2: -0.02em;
+$typography__size--style-3: 26px;
+$typography__line--style-3: 32px;
+$typography__spacing--style-3: -0.01em;
+$typography__size--style-4: 20px;
+$typography__line--style-4: 28px;
+$typography__spacing--style-4: -0.01em;
+$typography__size--style-5: 18px;
+$typography__line--style-5: 24px;
+$typography__spacing--style-5: 0.01em;
+$typography__size--style-6: 16px;
+$typography__line--style-6: 24px;
+$typography__size--style-7: 14px;
+$typography__line--style-7: 22px;
+$typography__spacing--style-7: 0.01em;
+$typography__size--style-8: 13px;
+$typography__line--style-8: 18px;
+$typography__size--style-9: 12px;
+$typography__line--style-9: 16px;
+
+$typography__weight--book: "Gotham 4r";
+$typography__weight--medium: "Gotham 5r";
+
+$typography-yml__size--h1: $typography__size--style-1;
+$typography-yml__size--h2: $typography__size--style-2;
+$typography-yml__size--h3: $typography__size--style-3;
+$typography-yml__size--h4: $typography__size--style-4;
+$typography-yml__size--h5: $typography__size--style-6;
+$typography-yml__size--h6: $typography__size--style-7; // not used per DS2
+$typography-yml__size--p1: $typography__size--style-4;
+$typography-yml__size--p2: $typography__size--style-5;
+$typography-yml__size--p3: $typography__size--style-7;
+$typography-yml__size--p4: $typography__size--style-8;
+$typography-yml__size--p5: $typography__size--style-9;
+
+$base-font-size--mobile: $typography__size--style-8;
+$base-font-size--tablet: $typography__size--style-7;
+$base-font-size--desktop: $typography__size--style-6;
+$base-font-size: $typography__size--style-6;
+
+$base-font-family: $typography__weight--book;
+$medium-font-family: $typography__weight--medium;
+$light-font-family: "Gotham 3r"; // not used in DS2
+$backup-font-family: Verdana;
+
+/*
+$extra-tiny-font-px: 12px;
+$tiny-font-px: 13px;
+$small-font-px: 18px;
+$medium-font-px: 20px;
+$large-font-px: 28px;
+$xl-font-px: 36px;
+$xxl-font-px: 60px;
+
+$extra-tiny-font-size: px-to-rem($extra-tiny-font-px);
+$tiny-font-size: px-to-rem($tiny-font-px);
+$small-font-size: px-to-rem($small-font-px);
+$medium-font-size: px-to-rem($medium-font-px);
+$large-font-size: px-to-rem($large-font-px);
+$xl-font-size: px-to-rem($xl-font-px);
+$xxl-font-size: px-to-rem($xxl-font-px);
+*/

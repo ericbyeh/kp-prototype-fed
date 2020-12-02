@@ -1,0 +1,47 @@
+
+// _document-lib.scss
+
+@mixin paragraph-sg-spacing {
+  margin: 0 0;
+}
+
+@mixin h1-3-heading-sg-spacing {
+  margin: 0 0;
+}
+
+@mixin h4-6-heading-sg-spacing {
+  margin: $small-spacing 0;
+}
+
+// DS2 - NEW
+@mixin document__full-width-background--gray {
+  background-color: color("gray-light");
+}
+
+@mixin document__full-width-background--white {
+  background-color: color("white");
+}
+
+@mixin document__full-width-background--half-height-gray {
+  background: linear-gradient(top, color("white") 50%, color("gray-light") 50%);
+}
+
+@mixin document__full-width-background--half-height-white {
+  background: linear-gradient(top, color("gray-light") 50%, color("white") 50%);
+}
+
+@mixin document__section-spacing__margin-top {
+  @include yml-spacing-3u('margin-top');
+}
+
+@mixin document__section-spacing__margin-bottom {
+  @include yml-spacing-3u('margin-bottom');
+}
+
+@mixin document__section-spacing__padding-top {
+  @include yml-spacing-3u('padding-top');
+}
+
+@mixin document__section-spacing__padding-bottom {
+  @include yml-spacing-3u('padding-bottom');
+}

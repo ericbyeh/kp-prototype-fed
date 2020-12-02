@@ -1,0 +1,39 @@
+$button__font-size--device: 13px;
+$button__font-size--desktop: 15px;
+
+$button__text-color--default: color("blue-dark");
+$button__background-color--default: color("blue-xlight");
+$button__border-color--default: color("blue-regular");
+$button__hover-text-color--default: color("white");
+$button__hover-background-color--default: color("blue-regular");
+$button__hover-border-color--default: color("blue-regular");
+$button__active-text-color--default: color("white");
+$button__active-background-color--default: color("blue-dark");
+$button__active-border-color--default: color("blue-dark");
+$button__border-radius: 100px;
+$button__icon-svg-filter--default: grayscale(100) invert(1) brightness(100);
+
+$button__text-color--inverted: color("blue-dark");
+$button__background-color--inverted: color("white");
+$button__border-color--inverted: color("blue-regular");
+
+$button__text-color--disabled: color("gray-dark");
+$button__background-color--disabled: transparent;
+$button__border-color--disabled: transparent;
+$button__icon-svg-filter--disabled: grayscale(100) opacity(80%);
+
+$button__icon--size: 24px;
+$button__icon--position-vertical: 50%;
+$button__icon--position-vertical-offset: -12px; // half of $button__icon--size
+$button__icon--position-horizontal: 10px;
+$button__padding-vertical--mobile: 9px;
+$button__padding-horizontal--mobile: 10px;
+$button__padding-vertical--tablet: 12px;
+$button__padding-horizontal--tablet: 13px;
+$button__padding-vertical--desktop: 14px;
+$button__padding-horizontal--desktop: 15px;
+$button__padding-horizontal--icon-side: 40px;
+
+$button-hover-color: color("blue-regular");
+$button-disable-color: color("blue-regular");
+$button-inverted-disable-color: #ffffff;

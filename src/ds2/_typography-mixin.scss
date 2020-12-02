@@ -1,0 +1,144 @@
+
+
+@import 'typography-variable';
+
+
+@function px-to-rem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@function px-to-em($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em;
+}
+
+// Mixin for size
+@mixin calculateRem($size) {
+  font-size-pixel: $size; // fallback in px
+  font-size-rem: calculateRem($size);
+}
+
+$extra-tiny-font-px: 12px;
+$tiny-font-px: 13px;
+$small-font-px: 18px;
+$medium-font-px: 20px;
+$large-font-px: 28px;
+$xl-font-px: 36px;
+$xxl-font-px: 60px;
+$extra-tiny-font-size: px-to-rem($extra-tiny-font-px);
+$tiny-font-size: px-to-rem($tiny-font-px);
+$small-font-size: px-to-rem($small-font-px);
+$medium-font-size: px-to-rem($medium-font-px);
+$large-font-size: px-to-rem($large-font-px);
+$xl-font-size: px-to-rem($xl-font-px);
+$xxl-font-size: px-to-rem($xxl-font-px);
+
+
+@mixin caps {
+  text-transform: uppercase;
+}
+
+@mixin styling($i) {
+  font-weight: normal;
+
+  @if $i==1 {
+    font-family: $typography__weight--medium;
+    font-size: $typography__size--style-1;
+    line-height: $typography__line--style-1;
+    letter-spacing: $typography__spacing--style-1;
+    /*
+    @include media($mobile) {
+      body:not(.-locked) &:not(.-locked) {
+        font-size: $xl-font-size;
+        line-height: 48px;
+      }
+    }
+    */
+  }
+  @if $i==2 {
+    font-family: $typography__weight--medium;
+    font-size: $typography__size--style-2;
+    line-height: $typography__line--style-2;
+    letter-spacing: $typography__spacing--style-2;
+    /*
+    @include media($mobile) {
+      body:not(.-locked) &:not(.-locked) {
+        font-size: $large-font-size;
+        line-height: 36px;
+      }
+    }
+    */
+  }
+  @if $i==3 {
+    font-family: $typography__weight--medium;
+    font-size: $typography__size--style-3;
+    line-height: $typography__line--style-3;
+    letter-spacing: $typography__spacing--style-3;
+    /*
+    @include media($mobile) {
+      body:not(.-locked) &:not(.-locked) {
+        font-size: $medium-font-size;
+        line-height: 28px;
+      }
+    }
+    */
+  }
+  @if $i==4 {
+    font-family: $typography__weight--medium;
+    font-size: $typography__size--style-4;
+    line-height: $typography__line--style-4;
+    letter-spacing: $typography__spacing--style-4;
+    /*
+    @include media($mobile) {
+      body:not(.-locked) &:not(.-locked) {
+        font-size: $small-font-size;
+        line-height: 24px;
+      }
+    }
+    */
+  }
+  @if $i==5 {
+    font-family: $typography__weight--book;
+    font-size: $typography__size--style-5;
+    line-height: $typography__line--style-5;
+    letter-spacing: $typography__spacing--style-5;
+  }
+  @if $i==6 {
+    font-family: $typography__weight--medium;
+    font-size: $typography__size--style-6;
+    line-height: $typography__line--style-6;
+    letter-spacing: normal;
+    /*
+    @include media($mobile) {
+      body:not(.-locked) &:not(.-locked) {
+        font-size: $base-mobile-font-size;
+        line-height: 20px;
+      }
+    }
+    */
+  }
+  @if $i==7 {
+    font-family: $typography__weight--book;
+    font-size: $typography__size--style-7;
+    line-height: $typography__line--style-7;
+    letter-spacing: $typography__spacing--style-7;
+    /*
+    @include media($mobile) {
+      font-size: $base-mobile-font-size;
+      line-height: 20px;
+    }
+    */
+  }
+  @if $i==8 {
+    font-family: $typography__weight--book;
+    font-size: $typography__size--style-8;
+    line-height: $typography__line--style-8;
+    letter-spacing: normal;
+  }
+  @if $i==9 {
+    font-family: $typography__weight--medium;
+    font-size: $typography__size--style-9;
+    line-height: $typography__line--style-9;
+    letter-spacing: normal;
+  }
+}

@@ -1,0 +1,92 @@
+
+$yml-tiny-spacing: 16px;
+$yml-medium-spacing: 32px;
+
+// these DS2 spacing variables for VERTICAL spacing
+// used mainly in the mixin but feel free to use
+// in your own breakpoints
+
+//  375 / 834 / 1720
+
+$yml-1u-mobile: 6.5px;
+$yml-2u-mobile: 15px;
+$yml-3u-mobile: 22.5px;
+$yml-4u-mobile: 30px;
+$yml-5u-mobile: 37.5px;
+$yml-6u-mobile: 45px;
+$yml-7u-mobile: 52.5px;
+$yml-5ux2-mobile: 75px;
+
+$yml-1u-tablet: 12.5px;
+$yml-2u-tablet: 25px;
+$yml-3u-tablet: 37.5167px;
+$yml-4u-tablet: 50.0333px;
+$yml-5u-tablet: 62.55px;
+$yml-6u-tablet: 75.05px;
+$yml-7u-tablet: 87.5667px;
+$yml-5ux2-tablet: 125.1px;
+
+$yml-1u-desktop: 17.2px;
+$yml-2u-desktop: 34.4px;
+$yml-3u-desktop: 51.5px;
+$yml-4u-desktop: 68.8px;
+$yml-5u-desktop: 86px;
+$yml-6u-desktop: 103.2px;
+$yml-7u-desktop: 120.4px;
+$yml-5ux2-desktop: 172px;
+
+$yml-scaling-1u-mobile: 2vw;
+$yml-scaling-2u-mobile: 4vw;
+$yml-scaling-3u-mobile: 6vw;
+$yml-scaling-4u-mobile: 8vw;
+$yml-scaling-5u-mobile: 10vw;
+$yml-scaling-6u-mobile: 12vw;
+$yml-scaling-7u-mobile: 14vw;
+$yml-scaling-5ux2-mobile: 20vw;
+
+$yml-scaling-1u-tablet: 1.5vw;
+$yml-scaling-2u-tablet: 3vw;
+$yml-scaling-3u-tablet: 4.5vw;
+$yml-scaling-4u-tablet: 6vw;
+$yml-scaling-5u-tablet: 7.5vw;
+$yml-scaling-6u-tablet: 9vw;
+$yml-scaling-7u-tablet: 10.5vw;
+$yml-scaling-5ux2-tablet: 15vw;
+
+$yml-scaling-1u-desktop: 1vw;
+$yml-scaling-2u-desktop: 2vw;
+$yml-scaling-3u-desktop: 3vw;
+$yml-scaling-4u-desktop: 4vw;
+$yml-scaling-5u-desktop: 5vw;
+$yml-scaling-6u-desktop: 6vw;
+$yml-scaling-7u-desktop: 7vw;
+$yml-scaling-5ux2-desktop: 10vw;
+
+
+// 'clever' method of using css custom properties
+// for DS2 units except that it only works
+// if the media query is native; no mixin
+
+// body {
+//   --yml-1u: #{$yml-1u-mobile};
+//   --yml-2u: #{$yml-2u-mobile};
+//   --yml-3u: #{$yml-3u-mobile};
+//   --yml-4u: #{$yml-4u-mobile};
+//   --yml-5u: #{$yml-5u-mobile};
+
+//   @media screen and (min-width: $responsive__max-width--tablet) {
+//     --yml-1u: #{$yml-1u-tablet};
+//     --yml-2u: #{$yml-2u-tablet};
+//     --yml-3u: #{$yml-3u-tablet};
+//     --yml-4u: #{$yml-4u-tablet};
+//     --yml-5u: #{$yml-5u-tablet};
+//   }
+
+//   @media screen and (min-width: $responsive__max-width--desktop) {
+//     --yml-1u: #{$yml-1u-desktop};
+//     --yml-2u: #{$yml-2u-desktop};
+//     --yml-3u: #{$yml-3u-desktop};
+//     --yml-4u: #{$yml-4u-desktop};
+//     --yml-5u: #{$yml-5u-desktop};
+//   }
+// }

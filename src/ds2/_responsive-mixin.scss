@@ -1,0 +1,27 @@
+
+
+@import 'responsive-variable';
+
+@mixin mobile-only {
+  @include media($tablet-up) {
+    display: none !important;
+  }
+}
+
+@mixin device-only {
+  @include media($desktop) {
+    display: none !important;
+  }
+}
+
+@mixin tablet-up-only {
+  @include media($mobile) {
+    display: none !important;
+  }
+}
+
+@mixin desktop-only {
+  @include media($device) {
+    display: none !important;
+  }
+}

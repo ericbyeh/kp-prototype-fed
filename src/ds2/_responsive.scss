@@ -1,0 +1,21 @@
+
+
+/* stylelint-disable declaration-no-important */
+@import 'responsive-mixin';
+
+.mobile-only {
+  @include mobile-only;
+}
+
+.device-only {
+  @include device-only;
+}
+
+.tablet-up-only {
+  @include tablet-up-only;
+}
+
+.desktop-only {
+  @include desktop-only;
+}
+/* stylelint-enable */

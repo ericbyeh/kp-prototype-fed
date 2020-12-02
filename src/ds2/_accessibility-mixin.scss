@@ -1,0 +1,25 @@
+@mixin screenreader-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px); // clip:rect is deprecated, but required for browsers that don't yet support clip-path
+  clip-path: inset(50%); // For modern browsers - for visual hiding
+  padding: 0; // Prevent visual glitches
+  width: 1px;
+  height: 1px;
+  border: 0; // Prevent visual glitches
+  overflow: hidden;
+  white-space: nowrap; // Without this, certain assistive technologies will announce a sentence as if it has no whitespace between words
+
+  &.invisible-link {
+    display: flex; // prevent disappearing focus in iOS 10
+
+    &:focus {
+      position: static;
+      clip: auto;
+      clip-path: none;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      white-space: inherit;
+    }
+  }
+}

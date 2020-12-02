@@ -1,0 +1,19 @@
+
+// _variables.scss
+$numColumns: 12;
+$numColumnsMobile: 6;
+
+// added in DS2
+$grid__gutter--mobile: 2vw;
+$grid__gutter--tablet: 1vw;
+$grid__gutter--desktop: 1vw;
+
+$grid__margin--mobile: 16px;
+$grid__margin--tablet: 20px;
+$grid__margin--desktop: 20px;
+
+$grid__width--mobile-smaller: $responsive__min-width--mobile; // = KP mobile-small
+$grid__max-width--mobile-large: $responsive__max-width--mobile; // 767px DS2 6 Column - iPhone 6
+$grid__max-width--tablet: $responsive__max-width--tablet; // 1151px DS2 12 Column - iPad Pro 10.5"
+$grid__max-width--desktop-small: $responsive__max-width--desktop-small; // 1180px DS2 12 Column
+$grid__max-width--desktop: $responsive__max-width--desktop; // 1280px = DS2 desktop max width = KP desktop-medium-max

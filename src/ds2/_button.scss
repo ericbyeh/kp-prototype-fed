@@ -1,0 +1,89 @@
+
+@import 'button-mixin';
+
+// classes
+.button {
+
+  @include button;
+
+  // DS2 - new
+  &.button__icon--left {
+    @include button__icon--left;
+  }
+
+  // DS2 - new
+  &.button__icon--right {
+    @include button__icon--right;
+  }
+
+  // DS2 - new
+  &.button__icon--only {
+    @include button__icon--only;
+  }
+
+  &.button__background--white { // DS2 - No Longer Used - ADA violation
+    @include button__background--white;
+  }
+
+  i {
+
+
+    &.-right-icon {
+
+    }
+  }
+
+  // DS2 - new
+  .icon {
+    width: $button__icon--size;
+    height: $button__icon--size;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+a.button {
+  font-family: 'Gotham 4r';
+  background-color: color('blue-xlight');
+}
+
+
+
+
+// This is moved to modern because global main/modern-lib needs
+//  to not have any icon related dependencies.
+%-close-icon {
+  &:before {
+
+  }
+}
+
+.-close {
+  @include media($device) {
+
+  }
+
+  &--large {
+
+
+  }
+
+  &--small {
+
+
+  }
+}
+
+.-primary-action {
+  @include media($device) {
+
+  }
+}
+
+// DS2 - new
+a.button {
+  @include link-as-button;
+}

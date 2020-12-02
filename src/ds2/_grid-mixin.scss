@@ -1,0 +1,110 @@
+
+// _new-grid-lib.scss
+
+@import 'grid-variable';
+
+// DS2 - updated to use padding instead of margin
+@mixin newGrid__container {
+  @include clearfix;
+  padding-right: $grid__margin--mobile;
+  padding-left: $grid__margin--mobile;
+
+  /* legacy - may not need in DS2
+  @include media($mobile) {
+    margin-right: $grid__margin--mobile;
+    margin-left: $grid__margin--mobile;
+  }
+  */
+
+  @include media($tablet) {
+    padding-right: $grid__margin--tablet;
+    padding-left: $grid__margin--tablet;
+  }
+
+  /* legacy - may not need in DS2
+  @include media($desktop-small) {
+    margin-right: $grid__margin--desktop;
+    margin-left: $grid__margin--desktop;
+  }
+  */
+
+  @include media($desktop) {
+    padding-right: $grid__margin--desktop;
+    padding-left: $grid__margin--desktop;
+    max-width: $grid__max-width--desktop;
+  }
+
+  @include media($desktop-large) {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@mixin grid_container__full-width {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: none;
+}
+
+@mixin grid_container__full-width--mobile-only {
+  @include media($mobile) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@mixin grid_container__full-width--device-only {
+  @include media($device) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@mixin rows {
+  // DS2 - removed - IE-specific CSS block -> @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+
+  @supports (display: grid) {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat($numColumnsMobile, 1fr);
+    grid-gap: 0 $grid__gutter--mobile;
+
+
+    @include media($mobile-max) {
+      grid-template-columns: repeat($numColumnsMobile, 1fr);
+      grid-gap: 0 $grid__gutter--mobile;
+    }
+
+    @include media($tablet) {
+      grid-template-columns: repeat($numColumns, 1fr);
+      grid-gap: 0 $grid__gutter--tablet;
+    }
+
+     @include media($desktop) {
+      grid-template-columns: repeat($numColumns, 1fr);
+      grid-gap: 0 $grid__gutter--desktop;
+    }
+  }
+
+}
+
+@mixin columns($i) {
+  // DS2 - removed - IE-specific CSS block -> @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+
+  @supports (display: grid) {
+    margin-right: 0;
+    grid-column: span $i;
+
+    @include media($mobile-max){
+      @if $i == 3 {
+        grid-column: span $numColumnsMobile / 2;
+      }
+      @if $i >= 4 {
+        grid-column: span $numColumnsMobile;
+      }
+    }
+  }
+
+}

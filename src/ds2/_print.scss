@@ -1,0 +1,65 @@
+
+
+/* stylelint-disable declaration-no-important */
+@import 'print-mixin';
+
+.print-only, .print-only-inline, .print-only-inline-block {
+  display: none !important;
+}
+
+.print-link {
+  @include print-link;
+
+  background: none;
+  border: 0;
+  padding: 0;
+  color: color("interactive-blue");
+  &:hover {
+    color: color("interactive-blue-dark");
+    outline: 0;
+  }
+  &:focus {
+    color: color("interactive-blue-dark");
+  }
+  i {
+    margin-right: $extra-tiny-spacing;
+  }
+}
+
+@media print {
+  body {
+    color: color("inky-blue") !important;
+    background: #fff !important;
+    a, a:visited {
+      color: color("inky-blue") !important;
+    }
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-only-inline {
+    display: inline !important;
+  }
+
+  .print-only-inline-block {
+    display: inline-block !important;
+  }
+
+  .print-only-logo {
+    display: block;
+    width: 33%;
+  }
+
+  .screen-only, .kp-global-header-component, .kp-global-footer-component {
+    display: none !important;
+  }
+
+  .kp-body-component {
+    margin-top: 28pt;
+    padding-top: 28pt;
+    border-top: 1pt solid color("inky-blue");
+  }
+}
+/* stylelint-enable */

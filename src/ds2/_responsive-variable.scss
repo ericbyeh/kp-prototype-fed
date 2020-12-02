@@ -1,0 +1,129 @@
+
+// _base-lib.scss
+
+//new breakpoint
+@function new-breakpoint($query: $feature $value $columns, $total-columns: $grid-columns) {
+  @if length($query)==1 {
+    $query: $default-feature nth($query, 1) $total-columns;
+  }
+
+  @else if is-even(length($query)) {
+    $query: append($query, $total-columns);
+  }
+
+  @if is-not(belongs-to($query, $visual-grid-breakpoints)) {
+    $visual-grid-breakpoints: append($visual-grid-breakpoints, $query, comma) !global;
+  }
+
+  @return $query;
+}
+
+
+
+// _variables.scss
+
+// DS2 - Documentation 1.1 values
+$responsive__min-width--mobile: 320px; // = KP mobile-small
+$responsive__max-width--mobile: 767px; // DS2 6 Column - iPhone 6
+$responsive__max-width--tablet-small: 1024px; // = KP desktop-small-max
+$responsive__max-width--tablet: 1151px; // DS2 12 Column - iPad Pro 10.5"
+$responsive__max-width--desktop-small: 1180px; // DS2 12 Column
+$responsive__max-width--desktop: 1280px; // = DS2 desktop max width = KP desktop-medium-max
+$responsive__max-width--desktop-medium: $responsive__max-width--desktop;
+
+// added/updated in DS2
+$tablet-min: $responsive__max-width--mobile+1px; // 768px
+$desktop-small-min: $responsive__max-width--tablet+1px; // 1152px
+$desktop-medium-min: $responsive__max-width--desktop-small+1px; // 1181px
+$desktop-large-min: $responsive__max-width--desktop-medium+1px; // 1281px
+
+$mobile: new-breakpoint(max-width $responsive__max-width--mobile, 12); // 767px
+$mobile-max: $mobile; // 767px
+$tablet-small: new-breakpoint(min-width #{$responsive__min-width--mobile} max-width #{$responsive__max-width--mobile}, 12); // 320px to 767px
+$tablet: new-breakpoint(min-width #{$tablet-min} max-width #{$responsive__max-width--tablet}, 12); // 768px to 1151px
+$desktop-small: new-breakpoint(min-width #{$desktop-small-min} max-width #{$responsive__max-width--desktop-small}, 12); // 1152px to 1180px
+$desktop-medium: new-breakpoint(min-width #{$desktop-medium-min} max-width #{$responsive__max-width--desktop-medium}, 12); // 1181px to 1280px
+$desktop-large: new-breakpoint(min-width $desktop-large-min, 12); // 1281px and more
+
+$tablet-up: new-breakpoint(min-width $tablet-min, 12); // 768px
+$desktop-small-up: new-breakpoint(min-width $desktop-small-min, 12); // 1152px
+$desktop-medium-up: new-breakpoint(min-width $desktop-medium-min, 12); // 1281px
+
+$device: new-breakpoint(max-width $responsive__max-width--tablet, 12); // 1151px
+$desktop: $desktop-small-up; // 1152px
+
+// legacy - not used in DS2
+$default-feature: min-width;
+$outer-gutter-spacing: $small-spacing;
+$desktop-medium-small: new-breakpoint(min-width #{$desktop-small-min} max-width #{$responsive__max-width--desktop-medium}, 12); // 1152px to 1280px
+$max-width: $responsive__max-width--desktop-medium - ($outer-gutter-spacing * 2);
+
+
+/* legacy - not used in DS2, renamed variables for consistency (i.e. $responsive__max-width--mobile)
+$mobile-small: 320px+1;
+$mobile-max: 600px;
+$tablet-max: 768px;
+$desktop-small-max: 1024px;
+$desktop-medium-max: 1280px;
+*/
+
+// break point for KP header/footer in DS2 pages
+// $responsive__kp-legacy-breakpoint--
+// $mobile = $responsive__kp-legacy-breakpoint--mobile
+// $tablet-small = $responsive__kp-legacy-breakpoint--tablet-small  // 320+1px to 600px
+// $tablet = $responsive__kp-legacy-breakpoint--tablet  // 600+1px to 768px
+// $desktop-small = $responsive__kp-legacy-breakpoint--desktop-small  // 768+1px to 1024px
+// $desktop-medium = $responsive__kp-legacy-breakpoint--desktop-medium  // 1024+1px to 1280px
+// $desktop-large: = $responsive__kp-legacy-breakpoint--desktop-large  // 1280+1px and more
+// $tablet-up = $responsive__kp-legacy-breakpoint--tablet-up
+// $desktop-small-up = $responsive__kp-legacy-breakpoint--desktop-small-up
+// $desktop-medium-up = $responsive__kp-legacy-breakpoint--desktop-medium-up
+// $desktop-medium-small = $responsive__kp-legacy-breakpoint--desktop-medium-small // 769px to 1280px
+// $device = $responsive__kp-legacy-breakpoint--device
+// $desktop = $responsive__kp-legacy-breakpoint--desktop
+// $max-width: $responsive__kp-legacy-max-width--desktop-medium - ($outer-gutter-spacing * 2);
+// $responsive__kp-legacy-max-width--mobile: new-breakpoint(max-width $responsive__kp-legacy-max-width--mobile, 12);
+
+$responsive__kp-legacy-min-width--mobile: $responsive__min-width--mobile + 1px; // 321px
+$responsive__kp-legacy-max-width--tablet: $tablet-min; // 768px
+$responsive__kp-legacy-max-width--desktop-small: $responsive__max-width--tablet-small; // 1024px
+$responsive__kp-legacy-max-width--desktop-medium: $responsive__max-width--desktop; // 1280px
+
+$responsive__kp-legacy-max-width--mobile: 600px;
+$responsive__kp-legacy-min-width--tablet: $responsive__kp-legacy-max-width--mobile + 1px; // 601px
+$responsive__kp-legacy-min-width--desktop-small: $responsive__kp-legacy-max-width--tablet + 1px; // 769px
+$responsive__kp-legacy-min-width--desktop-medium: $responsive__kp-legacy-max-width--desktop-small + 1px; // 1025px
+$responsive__kp-legacy-min-width--desktop-large: $responsive__kp-legacy-max-width--desktop-medium + 1px; // 1281px
+
+$responsive__kp-legacy-breakpoint--mobile: new-breakpoint(max-width $responsive__kp-legacy-max-width--mobile, 12);
+$responsive__kp-legacy-breakpoint--tablet-small: new-breakpoint(min-width #{$responsive__kp-legacy-min-width--mobile} max-width #{$responsive__kp-legacy-max-width--mobile}, 12); // 320+1px to 600px
+$responsive__kp-legacy-breakpoint--tablet: new-breakpoint(min-width #{$responsive__kp-legacy-min-width--tablet} max-width #{$responsive__kp-legacy-max-width--tablet}, 12); // 600+1px to 768px
+$responsive__kp-legacy-breakpoint--desktop-small: new-breakpoint(min-width #{$responsive__kp-legacy-min-width--desktop-small} max-width #{$responsive__kp-legacy-max-width--desktop-small}, 12); // 768+1px to 1024px
+$responsive__kp-legacy-breakpoint--desktop-medium: new-breakpoint(min-width #{$responsive__kp-legacy-min-width--desktop-medium} max-width #{$responsive__kp-legacy-max-width--desktop-medium}, 12); // 1024+1px to 1280px
+$responsive__kp-legacy-breakpoint--desktop-large: new-breakpoint(min-width $responsive__kp-legacy-min-width--desktop-large, 12); // 1280+1px and more
+$responsive__kp-legacy-breakpoint--tablet-up: new-breakpoint(min-width $responsive__kp-legacy-min-width--tablet, 12);
+$responsive__kp-legacy-breakpoint--desktop-small-up: new-breakpoint(min-width $responsive__kp-legacy-min-width--desktop-small, 12);
+$responsive__kp-legacy-breakpoint--desktop-medium-up: new-breakpoint(min-width $responsive__kp-legacy-min-width--desktop-medium, 12);
+$responsive__kp-legacy-breakpoint--desktop-medium-small: new-breakpoint(min-width #{$responsive__kp-legacy-min-width--desktop-small} max-width #{$responsive__kp-legacy-max-width--desktop-medium}, 12); // 769px to 1280px
+$responsive__kp-legacy-breakpoint--device: new-breakpoint(max-width $responsive__kp-legacy-max-width--tablet, 12);
+$responsive__kp-legacy-breakpoint--desktop: $responsive__kp-legacy-breakpoint--desktop-small-up;
+// $max-width: $responsive__kp-legacy-max-width--desktop-medium - ($outer-gutter-spacing * 2);
+// $mobile-max: new-breakpoint(max-width $mobile-max, 12);
+// $responsive__kp-legacy-max-width--mobile: new-breakpoint(max-width $responsive__kp-legacy-max-width--mobile, 12);
+
+
+// Notes for setting break point for Header/Footer -
+// DS2 mobile = KP tablet
+// DS2 tablet large = KP desktop small
+// DS2 mobile = 0 ~ 767
+// DS2 tablet = 768 ~ 1151
+// DS2 desktop = 1152+
+// DS2 max width = 1180
+
+
+// DS2 - Documentation 1.01 values
+//$responsive__min-width--mobile: 378px+1; // DS2 51 Column (6) -> calculated to 378 viewport
+//$responsive__max-width--mobile: 778px; // DS2 106 Column (6) -> calculated to 778 viewport
+//$responsive__max-width--tablet: 830px; // DS2 56 Column (12) -> calculated to 830 viewport
+//$responsive__max-width--desktop-small: 1155px; // DS2 81 Column (12) -> calculated to 1155 viewport
+//$responsive__max-width--desktop-medium: 1440px;

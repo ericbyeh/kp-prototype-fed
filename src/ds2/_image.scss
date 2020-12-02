@@ -1,0 +1,35 @@
+
+
+@import 'image-variable';
+@import 'image-mixin';
+
+.image {
+  @include image;
+
+  // this displays for images inside
+  // the Text Image Component but not
+  // in AEM editable mode
+  .gs-text-image:not(.cq-Editable-dom) & {
+    // @include yml-image-loading;
+  }
+}
+
+// DS2 - new
+@mixin yml-image-border {
+  position: relative;
+  border: 0;
+  border-radius: 4px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 4px;
+  }
+}

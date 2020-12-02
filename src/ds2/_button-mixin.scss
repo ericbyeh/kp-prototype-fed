@@ -1,0 +1,253 @@
+
+
+@import 'button-variable';
+
+@mixin -block {
+  display: block;
+  width: 100%;
+}
+
+@mixin rounded-input {
+
+}
+
+@mixin button-($position) {
+
+}
+
+@mixin button_position($position) {
+
+}
+
+// DS2 - new
+@mixin button__padding-default {
+  padding: $button__padding-vertical--mobile $button__padding-horizontal--mobile;
+
+  @include media($tablet){
+    padding: $button__padding-vertical--tablet $button__padding-horizontal--tablet;
+  }
+  @include media($desktop){
+    padding: $button__padding-vertical--desktop $button__padding-horizontal--desktop;
+  }
+}
+
+@mixin button {
+  @include button__padding-default;
+  position: relative;
+  display: inline-block;
+  color: $button__text-color--default;
+  background-color: $button__background-color--default;
+  border: 1px solid $button__border-color--default;
+  border-radius: $button__border-radius;
+  font-size: $button__font-size--device;
+  line-height: $button__font-size--device;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+
+  // &:focus - do not define focus state, use browser default outline
+  &:hover {
+    color: $button__hover-text-color--default;
+    background-color: $button__hover-background-color--default;
+    border-color: $button__hover-border-color--default;
+  }
+
+  &:active {
+    color: $button__active-text-color--default;
+    background-color: $button__active-background-color--default;
+    border-color: $button__active-border-color--default;
+  }
+
+  @include media($desktop){
+    font-size: $button__font-size--desktop;
+    line-height: $button__font-size--desktop;
+  }
+
+
+  &.button__icon--left,
+  &.button__icon--right,
+  &.button__icon--only {
+    &:hover,
+    // &:focus - do not define focus state, use browser default outline
+    &:active {
+      img {
+        filter: $button__icon-svg-filter--default;
+      }
+    }
+  }
+
+  &.-inverted {
+    color: $button__text-color--inverted;
+    background-color: $button__background-color--inverted;
+    border-color: $button__border-color--inverted;
+
+    &:hover,
+    // &:focus - do not define focus state, use browser default outline
+    &:active {
+
+    }
+    &:disabled,
+    .-disabled,
+    &.-disabled {
+
+    }
+
+    &--white {
+
+      &:hover,
+      // &:focus - do not define focus state, use browser default outline
+      &:active {
+
+      }
+    }
+  }
+
+  &:disabled,
+  .-disabled {
+    color: $button__text-color--disabled;
+    background-color: $button__background-color--disabled;
+    border-color: $button__border-color--disabled;
+
+    img {
+      filter: $button__icon-svg-filter--disabled;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      cursor: not-allowed;
+
+      img {
+        filter: $button__icon-svg-filter--disabled;
+      }
+    }
+    &.-inverted {
+
+    }
+  }
+
+  &.-action {
+
+    // &:focus - do not define focus state, use browser default outline
+    &:hover {
+
+    }
+    &.-inverted {
+
+      // &:focus - do not define focus state, use browser default outline
+      &:hover {
+
+      }
+    }
+  }
+
+  &.-small {
+
+  }
+
+  &.-left {
+    @include button_position(left);
+  }
+  //float center attribute does not exist
+  // &.-center {
+  //   @include button_position(center);
+  // }
+  &.-right {
+    @include button_position(right);
+  }
+  &.-tertiary {
+
+    @include media($tablet-up){
+
+    }
+    &:hover,
+    // &:focus - do not define focus state, use browser default outline
+    &:active {
+
+    }
+  }
+}
+
+// DS2 - new
+@mixin button__icon--left {
+  padding-left: $button__padding-horizontal--icon-side;
+  .icon {
+    position: absolute;
+    top: $button__icon--position-vertical;
+    margin-top: $button__icon--position-vertical-offset;
+    left: $button__icon--position-horizontal;
+  }
+}
+// DS2 - new
+@mixin button__icon--right {
+  padding-right: $button__padding-horizontal--icon-side;
+  .icon {
+    position: absolute;
+    top: $button__icon--position-vertical;
+    margin-top: $button__icon--position-vertical-offset;
+    right: $button__icon--position-horizontal;
+  }
+}
+// DS2 - new
+@mixin button__icon--only {
+  line-height: 0;
+  padding: $button__padding-vertical--mobile;
+
+  @include media($tablet){
+    padding: $button__padding-vertical--tablet;
+  }
+  @include media($desktop){
+    padding: $button__padding-vertical--desktop;
+  }
+}
+
+// DS2 - No Longer Used - ADA violation
+@mixin button__background--white {
+  background-color: color("white");
+
+  // &:focus - do not define focus state, use browser default outline
+  &:hover {
+    color: $button__hover-text-color--default;
+    background-color: $button__hover-background-color--default;
+    border-color: $button__hover-border-color--default;
+  }
+
+  &:active {
+    color: $button__active-text-color--default;
+    background-color: $button__active-background-color--default;
+    border-color: $button__active-border-color--default;
+  }
+}
+
+// DS2 - new
+@mixin link-as-button { // override default link style in document.scss
+  color: $button__text-color--default;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+@mixin button-unstyled {
+
+}
+
+@mixin -close-styles {
+
+}
+
+@mixin -close {
+  @include -close-styles;
+  @include media($device) {
+
+  }
+  &--large {
+    @include -close-styles;
+
+  }
+  &--small {
+    @include -close-styles;
+
+  }
+}

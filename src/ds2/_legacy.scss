@@ -1,0 +1,733 @@
+// from StyleGuide 4.0.28 on 2020-07
+// _base-lib.scss
+
+
+
+
+// for Modal - Eric
+@mixin display-flex {
+  display: -webkit-box;      /* OLD - iOS */
+  display: -moz-box;         /* OLD - Firefox */
+  display: -ms-flexbox;
+  display: -webkit-flex;     /* Chrome */
+  display: flex;
+}
+$button-color: color("interactive-blue");
+
+
+
+// Scaling Variables
+$golden: 1.618;
+$minor-second: 1.067;
+$major-second: 1.125;
+$minor-third: 1.2;
+$major-third: 1.25;
+$perfect-fourth: 1.333;
+$augmented-fourth: 1.414;
+$perfect-fifth: 1.5;
+$minor-sixth: 1.6;
+$major-sixth: 1.667;
+$minor-seventh: 1.778;
+$major-seventh: 1.875;
+$octave: 2;
+$major-tenth: 2.5;
+$major-eleventh: 2.667;
+$major-twelfth: 3;
+$double-octave: 4;
+$em-base: 16px !default;
+//function modular scale has to be before the grid vars
+@function modular-scale($increment, $value: $modular-scale-base, $ratio: $modular-scale-ratio) {
+  $v1: nth($value, 1);
+  $v2: nth($value, length($value));
+  $value: $v1;
+
+  // scale $v2 to just above $v1
+  @while $v2>$v1 {
+    $v2: ($v2 / $ratio); // will be off-by-1
+  }
+
+  @while $v2 < $v1 {
+    $v2: ($v2 * $ratio); // will fix off-by-1
+  }
+
+  // check AFTER scaling $v2 to prevent double-counting corner-case
+  $double-stranded: $v2>$v1;
+
+  @if $increment>0 {
+    @for $i from 1 through $increment {
+      @if $double-stranded and ($v1 * $ratio)>$v2 {
+        $value: $v2;
+        $v2: ($v2 * $ratio);
+      }
+
+      @else {
+        $v1: ($v1 * $ratio);
+        $value: $v1;
+      }
+    }
+  }
+
+  @if $increment < 0 {
+
+    // adjust $v2 to just below $v1
+    @if $double-stranded {
+      $v2: ($v2 / $ratio);
+    }
+
+    @for $i from $increment through -1 {
+      @if $double-stranded and ($v1 / $ratio) < $v2 {
+        $value: $v2;
+        $v2: ($v2 / $ratio);
+      }
+
+      @else {
+        $v1: ($v1 / $ratio);
+        $value: $v1;
+      }
+    }
+  }
+
+  @return $value;
+}
+
+$column: modular-scale(3, 1em, $golden) !default;
+$gutter: modular-scale(1, 1em, $golden) !default;
+$grid-columns: 12 !default;
+$max-width: em(1088) !default;
+$border-box-sizing: true !default;
+$default-feature: min-width;
+$default-layout-direction: LTR !default;
+$layout-direction: $default-layout-direction !global;
+
+$container-display-table: false !default;
+$modular-scale-ratio: $perfect-fourth !default;
+$modular-scale-base: em($em-base) !default;
+$ease-in-quad: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$ease-in-cubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$ease-in-quart: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$ease-in-quint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$ease-in-sine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$ease-in-expo: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$ease-in-circ: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$ease-in-back: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$ease-out-quad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$ease-out-quint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$ease-out-sine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$ease-out-expo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$ease-out-circ: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$ease-in-out-quad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+$ease-in-out-quart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+$ease-in-out-quint: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+$ease-in-out-expo: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+$ease-in-out-back: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+/// Global variables to enable or disable vendor prefixes
+$prefix-for-webkit: true !default;
+$prefix-for-mozilla: true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera: true !default;
+$prefix-for-spec: true !default;
+$visual-grid: false !default;
+$visual-grid-color: #eee !default;
+$visual-grid-index: back !default;
+$visual-grid-opacity: 0.4 !default;
+$visual-grid-breakpoints: () !default;
+$parent-columns: $grid-columns !default;
+$fg-column: $column;
+$fg-gutter: $gutter;
+$fg-max-columns: $grid-columns;
+$container-display-table: false !default;
+// $layout-direction: LTR !default;
+
+
+@function is-not($value) {
+  @return if($value, false, true);
+}
+
+// Checks if a number is even
+@function is-even($int) {
+  @return $int % 2==0;
+}
+
+// Checks if an element belongs to a list or not
+@function belongs-to($tested-item, $list) {
+  @return is-not(not-belongs-to($tested-item, $list));
+}
+
+@function not-belongs-to($tested-item, $list) {
+  @return is-not(index($list, $tested-item));
+}
+
+// Contains display value
+@function contains-display-value($query) {
+  @return belongs-to(table, $query) or belongs-to(block, $query) or belongs-to(inline-block, $query) or belongs-to(inline, $query);
+}
+
+
+// Generates a striped background
+@function gradient-stops($grid-columns, $color: $visual-grid-color) {
+  $transparent: transparent;
+
+  $column-width: flex-grid(1, $grid-columns);
+  $gutter-width: flex-gutter($grid-columns);
+  $column-offset: $column-width;
+
+  $values: ($transparent 0, $color 0);
+
+  @for $i from 1 to $grid-columns*2 {
+    @if is-even($i) {
+      $values: append($values, $transparent $column-offset, comma);
+      $values: append($values, $color $column-offset, comma);
+      $column-offset: $column-offset + $column-width;
+    }
+
+    @else {
+      $values: append($values, $color $column-offset, comma);
+      $values: append($values, $transparent $column-offset, comma);
+      $column-offset: $column-offset + $gutter-width;
+    }
+  }
+
+  @return $values;
+}
+
+
+@function flex-grid($columns, $container-columns: $fg-max-columns) {
+  $width: $columns * $fg-column + ($columns - 1) * $fg-gutter;
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($width / $container-width);
+}
+
+@function flex-gutter($container-columns: $fg-max-columns, $gutter: $fg-gutter) {
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($gutter / $container-width);
+}
+
+@function grid-width($n) {
+  @return $n * $gw-column+($n - 1) * $gw-gutter;
+}
+
+@function get-parent-columns($columns) {
+  @if $columns !=$grid-columns {
+    $parent-columns: $columns !global;
+  }
+
+  @else {
+    $parent-columns: $grid-columns !global;
+  }
+
+  @return $parent-columns;
+}
+
+@function is-display-table($container-is-display-table, $display) {
+  @return $container-is-display-table==true or $display==table;
+}
+
+
+// px to EM
+@function rem($pxval) {
+  @if $output-bourbon-deprecation-warnings==true {
+  }
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $em-base;
+
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
+
+// Grid Mixins
+//Fill Parent
+@mixin fill-parent() {
+  width: 100%;
+
+  @if $border-box-sizing==false {
+    box-sizing: border-box;
+  }
+}
+
+
+
+//prefixer
+////// A mixin for generating vendor prefixes on non-standardized properties.
+/// @param {String} $property
+///   Property to prefix
+///
+/// @param {*} $value
+///   Value to use
+///
+/// @param {List} $prefixes
+///   Prefixes to define
+///
+/// @example scss - Usage
+///   .element {
+///     @include prefixer(border-radius, 10px, webkit ms spec);
+///   }
+///
+/// @example css - CSS Output
+///   .element {
+///     -webkit-border-radius: 10px;
+///     -moz-border-radius: 10px;
+///     border-radius: 10px;
+///   }
+///
+/// @require {variable} $prefix-for-webkit
+/// @require {variable} $prefix-for-mozilla
+/// @require {variable} $prefix-for-microsoft
+/// @require {variable} $prefix-for-opera
+/// @require {variable} $prefix-for-spec
+
+@mixin prefixer($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix==webkit {
+      @if $prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+
+    @else if $prefix==moz {
+      @if $prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+
+    @else if $prefix==ms {
+      @if $prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+
+    @else if $prefix==o {
+      @if $prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+
+    @else if $prefix==spec {
+      @if $prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+@mixin disable-prefix-for-all() {
+  $prefix-for-webkit: false !global;
+  $prefix-for-mozilla: false !global;
+  $prefix-for-microsoft: false !global;
+  $prefix-for-opera: false !global;
+  $prefix-for-spec: false !global;
+}
+
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+
+//Outer Container
+@mixin outer-container($local-max-width: $max-width) {
+  @include clearfix;
+  max-width: $local-max-width;
+
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+
+// Responsive breakpoint Mixin
+@mixin media($query: $feature $value $columns, $total-columns: $grid-columns) {
+  @if length($query)==1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns !global;
+      @content;
+      $grid-columns: $default-grid-columns !global;
+    }
+  }
+
+  @else {
+    $loop-to: length($query);
+    $media-query: "screen and ";
+    $default-grid-columns: $grid-columns;
+    $grid-columns: $total-columns !global;
+
+    @if is-not(is-even(length($query))) {
+      $grid-columns: nth($query, $loop-to) !global;
+      $loop-to: $loop-to - 1;
+    }
+
+    $i: 1;
+
+    @while $i <=$loop-to {
+      $media-query: $media-query + "("+ nth($query, $i) + ": "+ nth($query, $i + 1) + ") ";
+
+      @if ($i + 1) !=$loop-to {
+        $media-query: $media-query + "and ";
+      }
+
+      $i: $i+2;
+    }
+
+    @media #{$media-query} {
+      @content;
+      $grid-columns: $default-grid-columns !global;
+    }
+  }
+}
+
+//Timing Functions
+@mixin transition($properties...) {
+  // Fix for vendor-prefix transform property
+  $needs-prefixes: false;
+  $webkit: ();
+  $moz: ();
+  $spec: ();
+
+  // Create lists for vendor-prefixed transform
+  @each $list in $properties {
+    @if nth($list, 1)=="transform" {
+      $needs-prefixes: true;
+      $list1: -webkit-transform;
+      $list2: -moz-transform;
+      $list3: ();
+
+      @each $var in $list {
+        $list3: join($list3, $var);
+
+        @if $var !="transform" {
+          $list1: join($list1, $var);
+          $list2: join($list2, $var);
+        }
+      }
+
+      $webkit: append($webkit, $list1);
+      $moz: append($moz, $list2);
+      $spec: append($spec, $list3);
+    }
+
+    @else {
+      $webkit: append($webkit, $list, comma);
+      $moz: append($moz, $list, comma);
+      $spec: append($spec, $list, comma);
+    }
+  }
+
+  @if $needs-prefixes {
+    -webkit-transition: $webkit;
+    -moz-transition: $moz;
+    transition: $spec;
+  }
+
+  @else {
+    @if length($properties)>=1 {
+      @include prefixer(transition, $properties, webkit moz spec);
+    }
+
+    @else {
+      $properties: all 0.15s ease-out 0s;
+      @include prefixer(transition, $properties, webkit moz spec);
+    }
+  }
+}
+
+@mixin transition-property($properties...) {
+  -webkit-transition-property: transition-property-names($properties, "webkit");
+  -moz-transition-property: transition-property-names($properties, "moz");
+  transition-property: transition-property-names($properties, false);
+}
+
+@mixin transition-duration($times...) {
+  @include prefixer(transition-duration, $times, webkit moz spec);
+}
+
+@mixin transition-timing-function($motions...) {
+  // ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier()
+  @include prefixer(transition-timing-function, $motions, webkit moz spec);
+}
+
+@mixin transition-delay($times...) {
+  @include prefixer(transition-delay, $times, webkit moz spec);
+}
+
+@function unpack($shorthand) {
+  @if length($shorthand)==1 {
+    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
+  }
+
+  @else if length($shorthand)==2 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
+  }
+
+  @else if length($shorthand)==3 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+  }
+
+  @else {
+    @return $shorthand;
+  }
+}
+
+@function _is-length($value) {
+  @return type-of($value) !="null"and (str-slice($value + "", 1, 4)=="calc"
+    or index(auto inherit initial 0, $value) or (type-of($value)=="number"and not(unitless($value))));
+}
+
+@mixin position($position: relative, $coordinates: null null null null) {
+  @if type-of($position)==list {
+    $coordinates: $position;
+    $position: relative;
+  }
+
+  $coordinates: unpack($coordinates);
+
+  $offsets: (top: nth($coordinates, 1),
+    right: nth($coordinates, 2),
+    bottom: nth($coordinates, 3),
+    left: nth($coordinates, 4));
+
+  position: $position;
+
+  @each $offset,
+    $value in $offsets {
+    @if is-length($value) {
+      #{$offset}: $value;
+    }
+  }
+}
+
+//Size Mixin
+@mixin size($value) {
+  $width: nth($value, 1);
+  $height: $width;
+
+  @if length($value)>1 {
+    $height: nth($value, 2);
+  }
+
+  @if is-size($height) {
+    height: $height;
+  }
+
+  @if is-size($width) {
+    width: $width;
+  }
+}
+
+// simple padding
+@mixin pad($padding: flex-gutter()) {
+  $padding-list: null;
+
+  @each $value in $padding {
+    $value: if($value=='default', flex-gutter(), $value);
+    $padding-list: join($padding-list, $value);
+  }
+
+  padding: $padding-list;
+}
+/// Checks if a list does not contains a value.
+@function contains-falsy($list) {
+  @each $item in $list {
+    @if not $item {
+      @return true;
+    }
+  }
+
+  @return false;
+}
+/// Output directional properties, for instance `margin`.
+@function collapse-directionals($vals) {
+  $output: null;
+
+  $a: nth($vals, 1);
+  $b: if(length($vals) < 2, $a, nth($vals, 2));
+  $c: if(length($vals) < 3, $a, nth($vals, 3));
+  $d: if(length($vals) < 2, $a, nth($vals, if(length($vals) < 4, 2, 4)));
+
+  @if $a == 0 { $a: 0; }
+  @if $b == 0 { $b: 0; }
+  @if $c == 0 { $c: 0; }
+  @if $d == 0 { $d: 0; }
+
+  @if $a == $b and $a == $c and $a == $d { $output: $a;          }
+  @else if $a == $c and $b == $d         { $output: $a $b;       }
+  @else if $b == $d                      { $output: $a $b $c;    }
+  @else                                  { $output: $a $b $c $d; }
+
+  @return $output;
+}
+
+
+@mixin directional-property($pre, $suf, $vals) {
+  // Property Names
+  $top:    $pre + "-top"    + if($suf, "-#{$suf}", "");
+  $bottom: $pre + "-bottom" + if($suf, "-#{$suf}", "");
+  $left:   $pre + "-left"   + if($suf, "-#{$suf}", "");
+  $right:  $pre + "-right"  + if($suf, "-#{$suf}", "");
+  $all:    $pre +             if($suf, "-#{$suf}", "");
+
+  $vals: collapse-directionals($vals);
+
+  @if contains-falsy($vals) {
+    @if nth($vals, 1) { #{$top}: nth($vals, 1); }
+
+    @if length($vals) == 1 {
+      @if nth($vals, 1) { #{$right}: nth($vals, 1); }
+    } @else {
+      @if nth($vals, 2) { #{$right}: nth($vals, 2); }
+    }
+
+    @if length($vals) == 2 {
+      @if nth($vals, 1) { #{$bottom}: nth($vals, 1); }
+      @if nth($vals, 2) { #{$left}: nth($vals, 2); }
+    } @else if length($vals) == 3 {
+      @if nth($vals, 3) { #{$bottom}: nth($vals, 3); }
+      @if nth($vals, 2) { #{$left}: nth($vals, 2); }
+    } @else if length($vals) == 4 {
+      @if nth($vals, 3) { #{$bottom}: nth($vals, 3); }
+      @if nth($vals, 4) { #{$left}: nth($vals, 4); }
+    }
+  } @else {
+    #{$all}: $vals;
+  }
+}
+
+@function setStyle($map, $keys...) {
+  @each $key in $keys {
+    @if map-has-key($map, $key) {
+      $map: map-get($map, $key);
+    } @else {
+      @warn "The key ´#{$object} is not available in the map.";
+      @return null;
+    }
+  }
+  @return $map;
+}
+
+//padding Mixin
+@mixin padding($vals...) {
+  @include directional-property(padding, false, $vals...);
+}
+
+// CSS3 Flexible Box Model and property defaults
+// Unified attributes for 2009, 2011, and 2012 flavours.
+
+// 2009 - display (box | inline-box)
+// 2011 - display (flexbox | inline-flexbox)
+// 2012 - display (flex | inline-flex)
+@mixin display($value) {
+
+  // flex | inline-flex
+  @if $value == "flex" {
+    // 2009
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    // 2012
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox; // 2011 (IE 10)
+    display: flex;
+  } @else if $value == "inline-flex" {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: inline-box;
+
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  } @else {
+    display: $value;
+  }
+}
+
+// 2012 - flex-grow (number)
+@mixin flex-grow($number: 0) {
+
+  @include prefixer(flex-grow, $number, webkit moz spec);
+  -ms-flex-positive: $number;
+}
+
+// 2012 - flex-shrink (number)
+@mixin flex-shrink($number: 1) {
+
+  @include prefixer(flex-shrink, $number, webkit moz spec);
+  -ms-flex-negative: $number;
+}
+
+// 2012 - flex-basis (number)
+@mixin flex-basis($width: auto) {
+  @include prefixer(flex-basis, $width, webkit moz spec);
+  -ms-flex-preferred-size: $width;
+}
+//word wrap mixin
+@mixin word-wrap($wrap: break-word) {
+  overflow-wrap: $wrap;
+  word-wrap: $wrap;
+
+  @if $wrap == break-word {
+    word-break: break-all;
+  } @else {
+    word-break: $wrap;
+  }
+}
+
+
+@mixin transform($property: none) {
+  // none | <transform-function>
+  @include prefixer(transform, $property, webkit moz ms o spec);
+}
+
+@mixin transform-origin($axes: 50%) {
+  // x-axis - left | center | right  | length | %
+  // y-axis - top  | center | bottom | length | %
+  // z-axis -                          length
+  @include prefixer(transform-origin, $axes, webkit moz ms o spec);
+}
+
+@mixin transform-style($style: flat) {
+  @include prefixer(transform-style, $style, webkit moz ms o spec);
+}
+
+
+
+// vendor prefixes
+@mixin cross-browser($name, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$name}: #{$value};
+  }
+}
+
+// focus specific for firefox
+@mixin firefox-tab-focus {
+  @-moz-document url-prefix() {
+    outline: none;
+    border: 1px dotted aqua;
+    outline-offset: 0px;
+  }
+}
+
+// buttons focus specific for firefox
+@mixin firefox-tab-focus-buttons {
+  @-moz-document url-prefix() {
+    outline-offset: 2px;
+    outline: 1px dotted aqua;
+  }
+}

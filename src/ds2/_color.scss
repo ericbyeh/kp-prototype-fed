@@ -1,0 +1,84 @@
+// sass variable map
+$colors: (
+  // This section contains DS2 colors
+  "blue-xlight": #F0F7FA,
+  "blue-light": #92CCF0,
+  "blue-regular": #0078B3,
+  "blue-dark": #003B71,
+  "blue-xdark": #002343,
+  "gray-light": #F7F7F7,
+  "gray": #ECEDEF,
+  "gray-mid": #D3D6DC,
+  "gray-dark": #58616B,
+  "mint-light": #7BD3CF,
+  "mint-regular": #20A29E,
+  "mint-dark": #066564,
+  "green-light": #A4D751,
+  "green-regular": #33A437,
+  "pink-light": #FFA4B4,
+  "pink-regular": #F05674,
+  "pink-dark": #BB1654,
+  "purple-light": #B2A8D2,
+  "purple-regular": #846EAD,
+  "orange-regular": #F36C0D,
+  "orange-dark": #D1480C,
+  "red": #D00000,
+  "yellow-regular": #FEC941,
+  "black": #000,
+  "white": #fff,
+
+  // This section contains KP Style Guide colors
+  // used only for existing AEM components
+  "interactive-blue": #0078B3,
+  "contrast-blue": #006BA6,
+  "interactive-blue-dark": #003B71,
+  "kp-blue": #0078B3,
+  "inky-blue": #0D1C3D,
+  "dolphin": #677083,
+  "graphite-dark": #D3D6DC,
+  "graphite": #E9EBEE,
+  "graphite-light": #F4F5F6,
+  "pebble": #F7F7F7,
+  "midnight": #003B71,
+  "sky": #90CEF1,
+  "moss": #4A7628,
+  "grass": #57A635,
+  "leaf": #A4D751,
+  "burnt-sienna": #D1480C,
+  "tiger-lily": #F36C0D,
+  "tangerine": #FEC941,
+  "ocean": #066564,
+  "aqua": #20A29E,
+  "robin-egg": #7BD3CF,
+  "acai": #BB1654,
+  "fuchsia": #F05674,
+  "rose": #FFA4B4,
+  "plum": #583985,
+  "lilac": #846EAD,
+  "lavender": #B2A8D2,
+  "deep-red": #B63125,
+  "deep-chalk": #585858,
+  "mid-chalk": #666,
+  "light-chalk": #D8D1CA,
+  "mid-aqua": #CEECFD,
+  "light-aqua": #E9F7FE,
+  "pale-blue": #F0F7FA,
+  "motion-blue": #94DFFF,
+
+  // This section contains the colors
+  // for the health alert buttons in
+  // the greetings section on the front door
+  "health-alert-green": #00E838,
+  "health-alert-yellow": #FFFF24,
+  "health-alert-orange": #FF7200,
+  "health-alert-red": #FF0000,
+  "health-alert-purple": #9D3D8C,
+  "health-alert-darkred": #8D0021
+);
+
+@function color($key){
+  @return map-get($colors, $key);
+}
+
+// missing in autocomplete-search-pattern
+$base-focus-color: color("blue-regular");

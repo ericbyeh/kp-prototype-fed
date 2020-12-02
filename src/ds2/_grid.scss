@@ -1,0 +1,34 @@
+
+// _new-grid.scss
+
+@import "grid-mixin";
+
+//classes
+.newGrid_container, // from StyleGuide
+.grid_container,
+.column-control-container // in AEM column control component
+{
+  @include newGrid__container;
+
+  &.grid_container__full-width {
+    @include grid_container__full-width;
+  }
+
+  &.grid_container__full-width--mobile-only {
+    @include grid_container__full-width--mobile-only;
+  }
+
+  &.grid_container__full-width--device-only {
+    @include grid_container__full-width--device-only;
+  }
+}
+
+.rows {
+  @include rows;
+}
+
+@for $i from 1 through $numColumns {
+  .columns-#{$i}{
+    @include columns($i);
+  }
+}

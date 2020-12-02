@@ -1,0 +1,112 @@
+// DS2 Unit spacing
+//
+// example usage:
+// .element {
+//    @include yml-3u('margin-bottom');
+// }
+
+@import "spacing-variable";
+
+@mixin yml-spacing-1u($property) {
+  #{$property}: $yml-1u-mobile;
+  @include media($tablet) { #{$property}: $yml-1u-tablet; }
+  @include media($desktop) { #{$property}: $yml-1u-desktop; }
+}
+
+@mixin yml-spacing-2u($property) {
+  #{$property}: $yml-2u-mobile;
+  @include media($tablet) { #{$property}: $yml-2u-tablet; }
+  @include media($desktop) { #{$property}: $yml-2u-desktop; }
+}
+
+@mixin yml-spacing-3u($property) {
+  #{$property}: $yml-3u-mobile;
+  @include media($tablet) { #{$property}: $yml-3u-tablet; }
+  @include media($desktop) { #{$property}: $yml-3u-desktop; }
+}
+
+@mixin yml-spacing-4u($property) {
+  #{$property}: $yml-4u-mobile;
+  @include media($tablet) { #{$property}: $yml-4u-tablet; }
+  @include media($desktop) { #{$property}: $yml-4u-desktop; }
+}
+
+@mixin yml-spacing-5u($property) {
+  #{$property}: $yml-scaling-5u-mobile;
+  @include media($tablet) { #{$property}: $yml-5u-tablet; }
+  @include media($desktop) { #{$property}: $yml-5u-desktop; }
+}
+
+@mixin yml-spacing-6u($property) {
+  #{$property}: $yml-scaling-6u-mobile;
+  @include media($tablet) { #{$property}: $yml-6u-tablet; }
+  @include media($desktop) { #{$property}: $yml-6u-desktop; }
+}
+
+@mixin yml-spacing-7u($property) {
+  #{$property}: $yml-scaling-7u-mobile;
+  @include media($tablet) { #{$property}: $yml-7u-tablet; }
+  @include media($desktop) { #{$property}: $yml-7u-desktop; }
+}
+
+@mixin yml-spacing-5ux2($property) {
+  #{$property}: $yml-5ux2-mobile;
+  @include media($tablet) { #{$property}: $yml-5ux2-tablet; }
+  @include media($desktop) { #{$property}: $yml-5ux2-desktop; }
+}
+
+
+// DS2 Unit scaling spacing
+//
+// example usage:
+// .element {
+//    @include yml-3u('margin-bottom');
+// }
+
+@mixin yml-scaling-1u($property) {
+  #{$property}: $yml-scaling-1u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-1u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-1u-desktop; }
+}
+
+@mixin yml-scaling-2u($property) {
+  #{$property}: $yml-scaling-2u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-2u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-2u-desktop; }
+}
+
+@mixin yml-scaling-3u($property) {
+  #{$property}: $yml-scaling-3u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-3u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-3u-desktop; }
+}
+
+@mixin yml-scaling-4u($property) {
+  #{$property}: $yml-scaling-4u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-4u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-4u-desktop; }
+}
+
+@mixin yml-scaling-5u($property) {
+  #{$property}: $yml-scaling-5u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-5u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-5u-desktop; }
+}
+
+@mixin yml-scaling-6u($property) {
+  #{$property}: $yml-scaling-6u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-6u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-6u-desktop; }
+}
+
+@mixin yml-scaling-7u($property) {
+  #{$property}: $yml-scaling-7u-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-7u-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-7u-desktop; }
+}
+
+@mixin yml-scaling-5ux2($property) {
+  #{$property}: $yml-scaling-5ux2-mobile;
+  @include media($tablet) { #{$property}: $yml-scaling-5ux2-tablet; }
+  @include media($desktop) { #{$property}: $yml-scaling-5ux2-desktop; }
+}

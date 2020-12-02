@@ -1,0 +1,29 @@
+
+
+$defaultfont: sans-serif;
+$weight-array: (light: 200, book: 400, medium: 600);
+
+.webview-content {
+  display: block;
+  /* stylelint-disable declaration-no-important */
+  font-family: $defaultfont !important;
+  /* stylelint-enable */
+
+  .hide-webview-content {
+    display: none;
+  }
+
+  b, strong {
+    font-weight: bold;
+    font-family: inherit;
+  }
+
+  // match this section with typography.scss
+  @each $weight-name,
+    $weight-value in $weight-array {
+    .-#{$weight-name} {
+      font-family: $defaultfont;
+      font-weight: $weight-value;
+    }
+  }
+}

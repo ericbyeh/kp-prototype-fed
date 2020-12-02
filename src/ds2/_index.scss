@@ -1,0 +1,37 @@
+@import 'normalize';
+
+.kp-theme-ds2 {
+  @import 'legacy';
+  @import 'color';
+  @import 'spacing';
+  @import 'responsive';
+  @import 'typography';
+  @import 'font';
+  @import 'grid';
+  @import 'document';
+  @import 'button';
+  @import 'image';
+  @import 'accessibility';
+  @import 'webview';
+
+  // Front Door
+  @import 'card';
+  @import 'welcome';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@each $name, $bgcolor in $colors {
+  .#{$name} {
+    background-color: $bgcolor;
+    color: set-text-color($bgcolor);
+    &.-inverted {
+      background-color: color(graphite-light);
+      color: $bgcolor;
+    }
+  }
+}
+
+@import 'print';

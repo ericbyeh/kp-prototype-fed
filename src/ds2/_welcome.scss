@@ -1,0 +1,312 @@
+// css for Welcome Component goes here
+$welcome-hero__fd-button-margin-bottom--mobile: 8px;
+$welcome-hero__fd-button-margin-bottom--tablet: 10px;
+$welcome-hero__fd-button-margin-bottom--desktop: 12px;
+$welcome-hero__fd-button-margin-right--mobile: 8px;
+$welcome-hero__fd-button-margin-right--tablet: 10px;
+$welcome-hero__fd-button-margin-right--desktop: 12px;
+
+.welcome-hero {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 16px + $typography__line--style-6 auto;
+  grid-column-gap: 16px;
+  @include yml-spacing-3u('padding-bottom');
+
+  @include media($desktop) {
+    grid-template-rows: auto;
+    margin-right: $grid__margin--desktop;
+    margin-left: $grid__margin--desktop;
+    max-width: $grid__max-width--desktop;
+  }
+
+  @include media($desktop-large) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.welcome-hero__image {
+  grid-column: 1 / -1;
+  grid-row: 1 / span 2;
+  position: relative;
+  padding-top: 66%;
+  overflow: hidden;
+
+  @include media($desktop) {
+    grid-column: 1 / span 9;
+    grid-row: 1;
+    @include yml-image-border;
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.welcome-hero__content {
+  @include yml-card-glow;
+  grid-column: 1 / -1;
+  grid-row: 2 / span 2;
+  align-self: end;
+  z-index: 1;
+  position: relative;
+  margin-right: $grid__margin--mobile;
+  margin-left: $grid__margin--mobile;
+  @include yml-spacing-2u('padding-top');
+  padding-right: $grid__margin--mobile - $welcome-hero__fd-button-margin-right--mobile; // minus fd-button margin-right
+  padding-bottom: $yml-2u-mobile + $button__padding-vertical--mobile; // add show-more-less padding
+  padding-left: $grid__margin--mobile;
+
+  @include media($tablet) {
+    margin-right: $grid__margin--tablet;
+    margin-left: $grid__margin--tablet;
+    padding-right: $grid__margin--mobile - $welcome-hero__fd-button-margin-right--tablet; // minus fd-button margin-right
+    padding-bottom: $yml-2u-tablet - $welcome-hero__fd-button-margin-bottom--tablet; // minus fd-button margin-bottom
+  }
+
+  @include media($desktop) {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 32px;
+    padding-right: 32px - $welcome-hero__fd-button-margin-right--desktop; // minus fd-button margin-right
+    padding-bottom: $yml-2u-desktop - $welcome-hero__fd-button-margin-bottom--desktop; // minus fd-button margin-bottom
+  }
+}
+
+.welcome-hero__content-title {
+  @include yml-spacing-2u('padding-bottom');
+  @include styling(6);
+  color: color("blue-dark");
+
+  @include media($desktop) {
+    @include styling(4);
+  }
+}
+
+.welcome-hero__content-description {
+}
+
+.welcome-hero__content-action {
+  .fd-button {
+    float: left; // to nullify the unintended whitspace created by AEM authoring tool
+    display: block; // unable to use inline-block because float attribute forces this to be treated as block
+    margin-right: $welcome-hero__fd-button-margin-right--mobile;
+    margin-bottom: $welcome-hero__fd-button-margin-bottom--mobile;
+
+    @include media($tablet) {
+      margin-right: $welcome-hero__fd-button-margin-right--tablet;
+      margin-bottom: $welcome-hero__fd-button-margin-bottom--tablet;
+    }
+
+    @include media($desktop) {
+      margin-right: $welcome-hero__fd-button-margin-right--desktop;
+      margin-bottom: $welcome-hero__fd-button-margin-bottom--desktop;
+    }
+  }
+}
+
+
+.welcome-story {
+  @include newGrid__container;
+  padding-top: 16px;
+  padding-bottom: 32px;
+
+  @include media($tablet-up) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 16px;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+  @include media($desktop) {
+    padding-bottom: 48px;
+  }
+}
+
+.welcome-story__image {
+  @include yml-card-glow;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  padding: 16px;
+  background-color: color("white");
+
+  @include media($tablet-up) {
+    grid-column-end: span 9;
+    grid-row: 1;
+    padding: 0;
+    // border-width: 0;
+    // background-color: transparent;
+    position: relative;
+    padding-top: 66.66666667%;
+    overflow: hidden;
+    @include yml-image-border;
+  }
+
+  img {
+    @include yml-image-border;
+    @include media($tablet-up) {
+      border: 0;
+      border-radius: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.welcome-story__content {
+  padding: 0 16px 16px;
+  border-width: 0 1px 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 4px 4px;
+  background-color: color("white");
+  z-index: 1;
+  position: relative;
+
+  @include media($tablet-up) {
+    grid-column-end: span 5;
+    grid-row: 1;
+    align-self: center;
+    padding-left: $yml-tiny-spacing;
+    padding-right: $yml-tiny-spacing;
+    @include yml-spacing-2u('padding-top');
+    @include yml-spacing-2u('padding-bottom');
+    border-width: 1px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+    background-color: color("white");
+  }
+
+  @include media($desktop-large) {
+    // grid-column-end: span 4;
+    padding-left: $yml-medium-spacing;
+    padding-right: $yml-medium-spacing;
+    @include yml-spacing-3u('padding-top');
+    @include yml-spacing-3u('padding-bottom');
+  }
+}
+
+.welcome-story__content-category {
+  @include yml-spacing-1u('padding-bottom');
+  @include styling(9);
+  color: color("blue-dark");
+
+  @include media($desktop) {
+    @include styling(4);
+  }
+
+  p {
+    margin: 0; // override AEM-injected element
+  }
+}
+
+.welcome-story__content-header {
+  display: flex;
+  align-items: flex-start;
+
+  .welcome-story__title-icon {
+    margin-right: 10px;
+    margin-top: -5px;
+    width: 40px;
+    flex: 0 0 auto;
+
+    @include media($desktop) {
+      margin-top: 0;
+    }
+  }
+
+  .welcome-story__content-title {
+    @include yml-spacing-2u('padding-bottom');
+    @include styling(3);
+
+    @include media($desktop) {
+      @include styling(2);
+    }
+  }
+}
+
+.welcome-story__content-description {
+  @include yml-spacing-2u('padding-bottom');
+  @include styling(7);
+  font-family: "Gotham 4r";
+
+  @include media($desktop) {
+    @include styling(4);
+    font-family: "Gotham 4r";
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.welcome-story__content-action {
+
+}
+
+.welcome-story--image-left {
+
+  .welcome-story__image {
+    @include media($tablet-up) {
+      grid-column-start: 1;
+    }
+  }
+
+  .welcome-story__content {
+    @include media($tablet-up) {
+      grid-column-start: 8;
+    }
+
+    @include media($desktop-large) {
+      // grid-column-start: 9;
+    }
+  }
+
+}
+
+.welcome-story--image-right {
+
+  .welcome-story__image {
+    @include media($tablet-up) {
+      grid-column-start: 4;
+    }
+  }
+
+  .welcome-story__content {
+    @include media($tablet) {
+      grid-column-start: 1;
+    }
+
+    @include media($desktop) {
+      grid-column-start: 1;
+    }
+  }
+
+}
+
+// the doctors and locations section
+// when no locations are not found
+// this is a bad solution until the classes
+// can be changed on the component
+.find-locations-error {
+  @include yml-spacing-3u('margin-top');
+
+  .document__full-width-background--gray {
+    background-color: color('white');
+  }
+}

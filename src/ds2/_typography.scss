@@ -1,0 +1,40 @@
+
+
+@import 'typography-mixin';
+
+// Create css class names
+// outputs as styling-1, styling-2, etc..
+@for $i from 1 through 9 {
+  .styling-#{$i} {
+    @include styling($i);
+
+    .-caps {
+      @include caps;
+    }
+  }
+}
+
+@each $weight-name,
+  $weight-value in $weight-array {
+  .-#{$weight-name},
+  %#{$weight-name} {
+    font-family: $weight-value;
+  }
+}
+
+@each $color-name,
+  $color-value in $color-array {
+  .-#{$color-name} {
+    color: $color-value;
+  }
+}
+
+/*
+.inverted-link {
+  @extend %inverted-link;
+}
+
+.muted {
+  color: darken(color(graphite-dark), 20%);
+}
+*/

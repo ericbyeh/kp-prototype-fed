@@ -1,0 +1,158 @@
+
+// _document.scss
+
+@import 'document-mixin';
+
+@at-root {
+  html {
+    font-size: $base-font-size;
+  }
+  // set base body font values
+  body {
+    color: color("black");
+    font-size: $base-font-size--mobile;
+    font-family: $base-font-family, $backup-font-family;
+    @include media($tablet) {
+      font-size: $base-font-size--tablet;
+    }
+    @include media($desktop) {
+      font-size: $base-font-size--desktop;
+    }
+  }
+}
+
+// this is part of neat grid/box_sizing and must be included
+// at-root for neat to work in a namespace
+@at-root {
+  html { // http://bit.ly/1qk2tVR
+    box-sizing: border-box;
+  }
+
+  * {
+    &,
+    &::after,
+    &::before {
+      box-sizing: inherit;
+    }
+  }
+}
+
+// Base link coloring
+a,
+a:visited {
+  color: color("blue-regular");
+  text-decoration: underline;
+
+  // DS2 - new [start]
+  border-radius: 2px; // give hover background a rounded look
+  // DS2 - new [end]
+}
+
+// a:focus - do not define focus state, use browser default outline
+a:hover {
+  color: color("blue-xlight");
+  background-color: color("blue-regular");
+  text-decoration: none;
+}
+
+a:active {
+  color: color("blue-xlight");
+  background-color: color("blue-dark");
+  text-decoration: none;
+}
+
+// Use spacing value for base margin values
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: $paragraph-spacing 0;
+}
+
+// Set base heading sizes
+h1 {
+  font-family: $typography__weight--medium;
+  font-size: $typography__size--style-1;
+  line-height: $typography__line--style-1;
+  letter-spacing: $typography__spacing--style-1;
+}
+
+h2 {
+  font-family: $typography__weight--medium;
+  font-size: $typography__size--style-2;
+  line-height: $typography__line--style-2;
+  letter-spacing: $typography__spacing--style-2;
+}
+
+h3 {
+  font-family: $typography__weight--medium;
+  font-size: $typography__size--style-3;
+  line-height: $typography__line--style-3;
+  letter-spacing: $typography__spacing--style-3;
+}
+
+h4 {
+  font-family: $typography__weight--medium;
+  font-size: $typography__size--style-4;
+  line-height: $typography__line--style-4;
+  letter-spacing: $typography__spacing--style-4;
+}
+
+h5 {
+  font-family: $typography__weight--medium;
+  font-size: $typography__size--style-6;
+  line-height: $typography__line--style-6;
+}
+
+h6 {
+  font-family: $typography__weight--book;
+  font-size: $typography__size--style-7;
+  line-height: $typography__line--style-7;
+  letter-spacing: $typography__spacing--style-7;
+}
+
+// Prevent iOS auto zoom
+@include media($device) {
+  input:not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+.sg-spacing p {
+  @include paragraph-sg-spacing;
+}
+
+.sg-spacing h1,
+.sg-spacing h2,
+.sg-spacing h3 {
+  @include h1-3-heading-sg-spacing;
+}
+
+.sg-spacing h4,
+.sg-spacing h5,
+.sg-spacing h6 {
+  @include h4-6-heading-sg-spacing;
+}
+
+// DS2 - NEW
+.document__full-width-background--gray {
+  @include document__full-width-background--gray;
+}
+
+.document__full-width-background--white {
+  @include document__full-width-background--white;
+}
+
+.document__full-width-background--half-height-gray {
+  @include document__full-width-background--half-height-gray;
+}
+
+.document__full-width-background--half-height-white {
+  @include document__full-width-background--half-height-white;
+}
